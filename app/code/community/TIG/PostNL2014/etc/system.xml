@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <!-- add PostNL shipping method to the shipping-methods list -->
+        <carriers translate="label" module="shipping">
+            <groups>
+                <postnl translate="label">
+                    <label>PostNL</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label" module="tig_postnl">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <title translate="label" module="tig_postnl">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <name translate="label" module="tig_postnl">
+                            <label>Method Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name>
+                        <rate_type translate="label" module="tig_postnl">
+                            <label>Rate Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/carrier_system_config_source_rateType</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </rate_type>
+                        <!-- flat rate settings -->
+                        <type translate="label" module="tig_postnl">
+                            <label>Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_shipping_flatrate</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <rate_type>flat</rate_type>
+                            </depends>
+                        </type>
+                        <price translate="label" module="tig_postnl">
+                            <label>Price</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-zero-or-greater</validate>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <rate_type>flat</rate_type>
+                            </depends>
+                        </price>
+                        <!-- tablerates settings -->
+                        <condition_name translate="label" module="tig_postnl">
+                            <label>Condition</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_shipping_tablerate</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <rate_type>table</rate_type>
+                            </depends>
+                        </condition_name>
+                        <!-- handling fee's -->
+                        <handling_type translate="label" module="tig_postnl">
+                            <label>Calculate Handling Fee</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>shipping/source_handlingType</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </handling_type>
+                        <handling_fee translate="label" module="tig_postnl">
+                            <label>Handling Fee</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-zero-or-greater</validate>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </handling_fee>
+                        <!-- allow specific countries -->
+                        <sallowspecific translate="label" module="tig_postnl">
+                            <label>Ship to Applicable Countries</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>140</sort_order>
+                            <frontend_class>shipping-applicable-country</frontend_class>
+                            <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sallowspecific>
+                        <specificcountry translate="label" module="tig_postnl">
+                            <label>Ship to Specific Countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>150</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                        </specificcountry>
+                        <sort_order translate="label" module="tig_postnl">
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_order>
+                    </fields>
+                </postnl>
+            </groups>
+        </carriers>
+        <!-- add the configuration page as seperate page to the backend -->
+        <tig_postnl translate="label" module="tig_postnl">
+            <label>PostNL</label>
+            <tab>sales</tab>
+            <frontend_type>text</frontend_type>
+            <class>tig_postnl-tab</class>
+            <sort_order>330</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <postnl_support translate="label" module="tig_postnl">
+                    <label><![CDATA[Version &amp; Support]]></label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <support>
+                            <sort_order>10</sort_order>
+                            <frontend_model>tig_postnl/adminhtml_system_config_supportTab</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </support>
+                    </fields>
+                </postnl_support>
+                <checkout translate="label comment" module="tig_postnl">
+                    <label>Basic settings</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <deliverydays_window translate="label" module="tig_postnl">
+                            <label>Numbers of days</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_windowDays</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </deliverydays_window>
+                        <cutoff_time translate="label comment">
+                            <label>Cut-off time</label>
+                            <comment>If a request is made for the delivery options between Friday after, and Monday before, cut-off time then Tuesday will be shown as the next possible delivery date.</comment>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-select</validate>
+                        </cutoff_time>
+                        <dropoff_days translate="label">
+                            <label>Drop-off days</label>
+                            <comment><![CDATA[<style>#tig_postnl_checkout_dropoff_days {height: 130px}</style>]]></comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <can_be_empty>0</can_be_empty>
+                            <source_model>tig_postnl/system_config_source_dropOffDays</source_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dropoff_days>
+                        <monday_delivery_active translate="label comment" module="tig_postnl">
+                            <label>Monday delivery</label>
+                            <comment><![CDATA[Note: Monday delivery is only possible when the package is delivered before 15.00 on Saturday at the designated PostNL locations. Click <a href="https://blog.postnl.nl/maandagbezorging" target="_blank">here</a> for more information concerning Monday delivery and the locations.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>135</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </monday_delivery_active>
+                        <saturday_cutoff_time translate="label comment">
+                            <label>Monday delivery cut-off time</label>
+                            <comment>If a request is made before this time on Saturday, Monday will be shown as the next possible delivery date. </comment>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>136</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-select</validate>
+                            <depends>
+                                <monday_delivery_active>1</monday_delivery_active>
+                            </depends>
+                        </saturday_cutoff_time>
+                        <dropoff_delay translate="label comment" module="tig_postnl">
+                            <label>Dropoff-delay</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_delayDays</source_model>
+                            <comment>This options allows you to set the number of days it takes you to pick, pack and hand in your parcels at PostNL when ordered before the cutoff time.</comment>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dropoff_delay>
+                        <css_path translate="label" module="tig_postnl">
+                            <label>CSS path</label>
+                            <comment>Add style to the checkout</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </css_path>
+                        <font_size translate="label" module="tig_postnl">
+                            <label>Font size</label>
+                            <comment>Leave blank to automatically determine the font size</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-zero-or-greater</validate>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </font_size>
+
+                        <!-- Hide and toggle PostNL options (used by parnis.nl) -->
+                        <toggle_options translate="label" module="tig_postnl">
+                            <label>Toggle options</label>
+                            <comment>When loading the checkout hide options (used by parnis.nl)</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </toggle_options>
+                    </fields>
+                </checkout>
+                <delivery translate="label comment" module="tig_postnl">
+                    <label>Delivery</label>
+                    <comment><![CDATA[To determine the base price you have to navigate in the menu to <a id="shipping_method_link">Shipping Methods</a>.]]></comment>
+                    <sort_order>25</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <class>delivery-method</class>
+                    <fields>
+                        <delivery_title translate="label" module="tig_postnl">
+                            <label>Delivery title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </delivery_title>
+                        <retrieve_address_title translate="label" module="tig_postnl">
+                            <label>Retrieve address title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>155</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </retrieve_address_title>
+                        <busy_loading_title translate="label" module="tig_postnl">
+                            <label>Busy loading title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>156</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </busy_loading_title>
+                        <standard_delivery_active translate="label" module="tig_postnl">
+                            <label>Standard delivery active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>157</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </standard_delivery_active>
+                        <age_check translate="label" module="tig_postnl">
+                            <label>Age check 18+</label>
+                            <comment>The age 18+ check is intended for parcel shipments for which the recipient must show 18+ by means of a proof of identity. With this shipping option "Signature for receipt" and "Delivery only at recipient" are included. The age 18+ is further excluded from the delivery options morning and evening delivery.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>159</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </age_check>
+                        <standard_delivery_titel translate="label" module="tig_postnl">
+                            <label>Standard delivery title</label>
+                            <comment>The times will be visible when nothing is filled in</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>158</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </standard_delivery_titel>
+                        <only_recipient_active translate="label" module="tig_postnl">
+                            <label>Home address only</label>
+                            <comment>Deliver the package only at address of the intended recipient</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <age_check>0</age_check>
+                            </depends>
+                        </only_recipient_active>
+                        <only_recipient_title translate="label" module="tig_postnl">
+                            <label>Home address only title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <only_recipient_active>1</only_recipient_active>
+                                <age_check>0</age_check>
+                            </depends>
+                        </only_recipient_title>
+                        <only_recipient_fee translate="label,comment" module="tig_postnl">
+                            <label>Home address only fee</label>
+                            <comment>This will be added to the regular shipping price</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <only_recipient_active>1</only_recipient_active>
+                                <age_check>0</age_check>
+                            </depends>
+                        </only_recipient_fee>
+                        <signature_active translate="label" module="tig_postnl">
+                            <label>Signature on receipt</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <age_check>0</age_check>
+                            </depends>
+                        </signature_active>
+                        <signature_title translate="label" module="tig_postnl">
+                            <label>Signature on receipt title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <signature_active>1</signature_active>
+                                <age_check>0</age_check>
+                            </depends>
+                        </signature_title>
+                        <signature_fee translate="label,comment" module="tig_postnl">
+                            <label>Signature on receipt fee</label>
+                            <comment>This will be added to the regular shipping price</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <signature_active>1</signature_active>
+                                <age_check>0</age_check>
+                            </depends>
+                        </signature_fee>
+                        <signature_and_only_recipient_fee translate="label,comment" module="tig_postnl">
+                            <label>Home address only and signature on receipt together fee</label>
+                            <comment>If both have been selected this price will be added to the regular shipping price. Leave empty for not using it.</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <signature_active>1</signature_active>
+                                <only_recipient_active>1</only_recipient_active>
+                                <age_check>0</age_check>
+                            </depends>
+                        </signature_and_only_recipient_fee>
+                    </fields>
+                </delivery>
+                <mailbox>
+                    <label>Mailbox</label>
+                    <sort_order>26</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <mailbox_active translate="label" module="tig_postnl">
+                            <label>Automate mailbox package</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>155</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </mailbox_active>
+                        <mailbox_title translate="label,comment" module="tig_postnl">
+                            <label>Mailbox title</label>
+                            <comment>Leave blank to automate mailbox packets only in the backend</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>157</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <mailbox_active>1</mailbox_active>
+                            </depends>
+                        </mailbox_title>
+                        <mailbox_weight translate="label,comment" module="tig_postnl">
+                            <label>Mailbox weight</label>
+                            <comment>Besides assigning weights to all products, you can also specify a volume of each product.</comment>
+                            <validate>validate-number</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>158</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <mailbox_active>1</mailbox_active>
+                            </depends>
+                        </mailbox_weight>
+                        <mailbox_fee translate="label,comment" module="tig_postnl">
+                            <label>Mailbox fee</label>
+                            <comment>Enter a basic price for a mailbox. The regular price will not affect this price.</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>159</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <mailbox_active>1</mailbox_active>
+                            </depends>
+                        </mailbox_fee>
+                    </fields>
+                </mailbox>
+                <morning_delivery translate="label comment" module="tig_postnl">
+                    <label>Morning delivery</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <morning_delivery_active translate="label" module="tig_postnl">
+                            <label>Morning delivery active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </morning_delivery_active>
+                        <morning_delivery_not_active_holder translate="label" module="tig_postnl">
+                            <label>Morning delivery active</label>
+                            <comment>Not possible if age check is active</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <age_check>1</age_check>
+                            </depends>
+                        </morning_delivery_not_active_holder>
+                        <morning_delivery_titel translate="label" module="tig_postnl">
+                            <label>Morning delivery title</label>
+                            <comment>The times will be visible when nothing is filled in</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>105</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <morning_delivery_active>1</morning_delivery_active>
+                            </depends>
+                        </morning_delivery_titel>
+                        <morning_delivery_fee translate="label,comment" module="tig_postnl">
+                            <label>Morning delivery fee</label>
+                            <comment>This will be added to the regular shipping price</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <morning_delivery_active>1</morning_delivery_active>
+                            </depends>
+                        </morning_delivery_fee>
+                    </fields>
+                </morning_delivery>
+                <eveningdelivery translate="label comment" module="tig_postnl">
+                    <label>Evening delivery</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <eveningdelivery_active translate="label" module="tig_postnl">
+                            <label>Evening delivery active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </eveningdelivery_active>
+                        <eveningdelivery_not_active_holder translate="label" module="tig_postnl">
+                            <label>Evening delivery active</label>
+                            <comment>Not possible if age check is active</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <age_check>1</age_check>
+                            </depends>
+                        </eveningdelivery_not_active_holder>
+                        <eveningdelivery_titel translate="label" module="tig_postnl">
+                            <label>Evening delivery title</label>
+                            <comment>The times will be visible when nothing is filled in</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>105</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <eveningdelivery_active>1</eveningdelivery_active>
+                            </depends>
+                        </eveningdelivery_titel>
+                        <eveningdelivery_fee translate="label,comment" module="tig_postnl">
+                            <label>Evening delivery fee</label>
+                            <comment>This will be added to the regular shipping price</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <eveningdelivery_active>1</eveningdelivery_active>
+                            </depends>
+                        </eveningdelivery_fee>
+                    </fields>
+                </eveningdelivery>
+                <pickup translate="label comment" module="tig_postnl">
+                    <label>Pickup at PostNL location</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <pickup_active translate="label" module="tig_postnl">
+                            <label>Pickup active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pickup_active>
+                        <pickup_title translate="label" module="tig_postnl">
+                            <label>Pickup title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>105</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <pickup_active>1</pickup_active>
+                            </depends>
+                        </pickup_title>
+                        <pickup_fee translate="label,comment" module="tig_postnl">
+                            <label>Pickup fee</label>
+                            <comment>This will be added to the regular shipping price</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <pickup_active>1</pickup_active>
+                            </depends>
+                        </pickup_fee>
+                    </fields>
+                </pickup>
+                <pickup_express translate="label comment" module="tig_postnl">
+                    <label>Pickup Express at PostNL location</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <pickup_express_active translate="label" module="tig_postnl">
+                            <label>Pickup Express active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pickup_express_active>
+                        <pickup_express_not_active_holder translate="label" module="tig_postnl">
+                            <label>Pickup Express active</label>
+                            <comment>Not possible if Pickup at PostNL location is not active</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <pickup_active>1</pickup_active>
+                            </depends>
+                        </pickup_express_not_active_holder>
+                        <pickup_express_fee translate="label,comment" module="tig_postnl">
+                            <label>Pickup Express fee</label>
+                            <comment>This will be added to the regular shipping price</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <pickup_express_active>1</pickup_express_active>
+                            </depends>
+                        </pickup_express_fee>
+                    </fields>
+                </pickup_express>
+                <belgium_delivery translate="label comment" module="tig_postnl">
+                    <label>Belgium Delivery</label>
+                    <sort_order>21</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <class>delivery-method</class>
+                    <fields>
+                        <belgium_delivery_title translate="label" module="tig_postnl">
+                            <label>Belgium delivery title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </belgium_delivery_title>
+                        <belgium_standard_delivery_titel translate="label" module="tig_postnl">
+                            <label>Belgium standard delivery title</label>
+                            <comment>The times will be visible when nothing is filled in</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>101</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </belgium_standard_delivery_titel>
+                    </fields>
+                </belgium_delivery>
+                <pickup_belgium translate="label comment" module="tig_postnl">
+                    <label>Pickup at Belgium PostNL location</label>
+                    <sort_order>25</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <pickup_belgium_active translate="label" module="tig_postnl">
+                            <label>Pickup Belgium active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pickup_belgium_active>
+                        <pickup_belgium_title translate="label" module="tig_postnl">
+                            <label>Pickup Belgium title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>105</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <pickup_belgium_active>1</pickup_belgium_active>
+                            </depends>
+                        </pickup_belgium_title>
+                        <pickup_belgium_fee translate="label,comment" module="tig_postnl">
+                            <label>Pickup Belgium fee</label>
+                            <comment>This will be added to the regular shipping price</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <pickup_belgium_active>1</pickup_belgium_active>
+                            </depends>
+                        </pickup_belgium_fee>
+                    </fields>
+                </pickup_belgium>
+                <api translate="label comment" module="tig_postnl">
+                    <label>API settings</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>To get your personal API credentials you should contact us.</comment>
+                    <fields>
+                        <username translate="label comment">
+                            <label>API Username</label>
+                            <comment>Your username.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </username>
+                        <key translate="label comment">
+                            <label>API Key</label>
+                            <comment>The API Key.</comment>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </key>
+                    </fields>
+                </api>
+                <general translate="label" module="tig_postnl">
+                    <label>Basic settings</label>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <print_orientation translate="label comment">
+                            <label>Print Orientation</label>
+                            <comment>Select a standard orientation for printing labels.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_a4a6</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </print_orientation>
+                        <tracktrace_template translate="label comment tooltip">
+                            <label>Track&amp;Trace email template</label>
+                            <comment>You can create a new transactional e-mail where the variables {{var tracktrace_url}} and {{var retourlabel_url}} are available. TIP: You can base them on the Order Update template, because {{var order}} is also available.</comment>
+                            <tooltip>Select a transactional e-mail template to send the barcode</tooltip>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tracktrace_template>
+                        <always_postnl translate="label comment tooltip">
+                            <label>Always use PostNL</label>
+                            <comment>Select 'No' in order to set the shipping methods that must be regarded as PostNL.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </always_postnl>
+                        <postnl_shipping_methods translate="label tooltip" module="tig_postnl">
+                            <label>PostNL shipping methods</label>
+                            <tooltip>Please select the shipping methods that will be considered to be 'PostNL' by this extension. Orders placed using one of these shipping methods may be processed using the PostNL extension.</tooltip>
+                            <frontend_type>multiselect</frontend_type>
+                            <can_be_empty>0</can_be_empty>
+                            <source_model>tig_postnl/system_config_source_shippingMethods</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <always_postnl>0</always_postnl>
+                            </depends>
+                        </postnl_shipping_methods>
+                        <pakjegemak_use_shipment_address translate="label comment">
+                            <label>Use shipment address for PostNL location</label>
+                            <comment>Use shipment address for 'Ophalen op een PostNL locatie'. The customer will see the address on the invoice. Set to 'No' if you are using AfterPay.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>65</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pakjegemak_use_shipment_address>
+                        <show_delivery_date_on_invoice translate="label comment">
+                            <label>Show delivery date on invoice</label>
+                            <comment>Show delivery date on invoice, packing slip, user account and Magento confirmation mail</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>66</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_delivery_date_on_invoice>
+                        <use_filter translate="label comment">
+                            <label>Use filter in order overview</label>
+                            <comment>Select 'No' if you are using a plugin that is present in the order summary and therefore experience problems.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>68</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-select</validate>
+                        </use_filter>
+                        <ssl_handshake translate="label comment tooltip">
+                            <label>Force unencrypted PostNL connection</label>
+                            <comment>By enabling this, you will force connection to the PostNL platform over unsecured http, rather than https</comment>
+                            <tooltip>In some cases the SSL certification can't be validated, which can lead to problems connection to the PostNL platform. Only use this if you are aware that all communication to PostNL will be sent over the unsecure https protocol.</tooltip>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <depends>
+                                <use_in_adminhtml>1</use_in_adminhtml>
+                            </depends>
+                        </ssl_handshake>
+                        <use_in_adminhtml>
+                            <frontend_type>hidden</frontend_type>
+                            <frontend_model>tig_postnl/adminhtml_system_config_adminSecure</frontend_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </use_in_adminhtml>
+                    </fields>
+                </general>
+                <shipment translate="label comment" module="tig_postnl">
+                    <label>Default Shipment Settings</label>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount. When shipping outside of the EU you can set default values for customs type and customs goods HS code.]]></comment>
+                    <fields>
+                        <home_address_only translate="label comment">
+                            <label>Home address only</label>
+                            <comment>Shipments will not be delivered at the neighbours, only on house address.</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-zero-or-greater</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </home_address_only>
+                        <signature_on_receipt translate="label comment">
+                            <label>Signature on receipt</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-zero-or-greater</validate>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </signature_on_receipt>
+                        <return_if_no_answer translate="label comment">
+                            <label>Return if no answer</label>
+                            <comment>Shipments will not go the a pickup point but will be returned directly after multiple delivery attempts.</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-zero-or-greater</validate>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </return_if_no_answer>
+                        <is_xl translate="label">
+                            <label>Large package</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-zero-or-greater</validate>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </is_xl>
+                        <insured_100 translate="label comment">
+                            <label><![CDATA[Insured up to &euro; 100]]></label>
+                            <comment>Only for dutch shipments</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-zero-or-greater</validate>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </insured_100>
+                        <insured_250 translate="label">
+                            <label><![CDATA[Insured up to &euro; 250]]></label>
+                            <comment><![CDATA[For NL shipping only, shipments outside the EU insured default is &euro; 200]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-zero-or-greater</validate>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </insured_250>
+                        <insured_500 translate="label comment">
+                            <label><![CDATA[Insured up to &euro; 500]]></label>
+                            <comment><![CDATA[For NL shipping only, shipments inside the EU insured default is &euro; 500]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-zero-or-greater</validate>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </insured_500>
+                        <automatically_next_status translate="label comment">
+                            <label>Automatically next status</label>
+                            <comment>Turn the order automatically to the next status after creating a label</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>65</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </automatically_next_status>
+                        <customs_type translate="label comment">
+                            <label>Customs Shipment Type</label>
+                            <comment>Default shipment type for Cross Domestic shipments</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_customs</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customs_type>
+                        <customs_hstariffnr translate="label comment">
+                            <label>Customs Content HS Code</label>
+                            <comment><![CDATA[Default content type for Cross Domestic products, see <a href="http://gebruikstarief.douane.nl" target="_blank">http://gebruikstarief.douane.nl</a>. HS codes can also be connected to categories. The data you enter here will be used as default.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-zero-or-greater</validate>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customs_hstariffnr>
+                        <prefix_street2_international_addresses translate="label comment">
+                            <label>Prefix 2nd field</label>
+                            <comment>Prefix the address with the 2nd field for the following countries; CN, FR, GR, IE, IL, JP, LU, MY, MA, NZ, SG, GB, US, VS</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_postnl/system_config_source_yesno</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </prefix_street2_international_addresses>
+                    </fields>
+                </shipment>
+            </groups>
+        </tig_postnl>
+    </sections>
+</config>

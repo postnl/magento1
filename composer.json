@@ -1,10 +1,10 @@
 {
-    "name": "tig/myparcel2014",
-    "description": "Magento MyParcel plug-in",
+    "name": "tig/postnl2014",
+    "description": "Magento PostNL plug-in",
     "type": "magento-module",
     "license": "GNU",
     "minimum-stability": "stable",
-    "homepage": "https://github.com/myparcelnl/magento1",
+    "homepage": "https://github.com/postnlnl/magento1",
     "require": {
         "magento-hackathon/magento-composer-installer": "*"
     }
