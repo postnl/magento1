@@ -41,7 +41,6 @@ TIG_PostNL2014::Selecting 'No' will overrule all individual settings.,Selecting 
 TIG_PostNL2014::General Settings,General Settings
 TIG_PostNL2014::API Key,API Key
 TIG_PostNL2014::The API Key.,The API Key.
-TIG_PostNL2014::API Username,API Username
 TIG_PostNL2014::Your username.,Your username.
 TIG_PostNL2014::To get your personal API credentials you should contact us.,To get your personal API credentials you should contact us.
 TIG_PostNL2014::API settings,API settings
