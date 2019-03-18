@@ -427,7 +427,7 @@ class TIG_PostNL2014_Helper_Data extends Mage_Core_Helper_Abstract
 
         if (strlen($fullStreet) > 40 && $throwException) {
             throw new TIG_PostNL2014_Exception(
-                $this->__('Address is too long. Make the delivery address less than 40 characters. Click on send (in the order detail page) to create a concept. And then edit the shipment in the backoffice.'),
+                $this->__('Address is too long. Make the delivery address less than 40 characters.'),
                 'MYPA-0026'
             );
         }
