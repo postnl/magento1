@@ -260,7 +260,6 @@ TIG_PostNL2014::Create shipments (no labels),Cre&euml;er verzendingen (geen labe
 TIG_PostNL2014::Insured up to &euro;%s,Verzekerd tot &euro;%s
 TIG_PostNL2014::Total order value: &euro; %s,Totaal order bedrag: &euro; %s
 TIG_PostNL2014::Shipment insured up to &euro; %s purchase value,Verzekerd tot een inkoopbedrag van € %s,-
-"TIG_PostNL2014::By creating this shipment, you create a concept in PostNL.<br>In the backoffice you can further customize the options.","Voor deze zending wordt een conceptzending aangemaakt.<br>In de backoffice is deze eventueel nog aan te passen."
 TIG_PostNL2014::Post Office Address,Gekozen afhaallocatie
 "TIG_PostNL2014::The selected shipment type cannot be used. Pakjegemak shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a PostNL shipment, select a different shipment type or go to the shipment page to create a single PostNL shipment. <a target=""_blank"" href=""%s"">View shipment</a>","De geselecteerde zending type kan niet gebruikt worden. 'PostNL locatie' zendingen kunnen enkel aangemaakt worden middels de normale verzendtype. <br/>De Magento zending is aangemaakt zonder een PostNL zending, selecteer een ander verzend type of ga naar de Magento zending pagina en maak daar een PostNL zending aan. <a target=""_blank"" href=""%s"">Bekijk zending</a>"
 TIG_PostNL2014::Only for dutch shipments,Alleen voor Nederlandse verzendingen
