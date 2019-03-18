@@ -752,15 +752,6 @@
                     <show_in_store>1</show_in_store>
                     <comment>To get your personal API credentials you should contact us.</comment>
                     <fields>
-                        <username translate="label comment">
-                            <label>API Username</label>
-                            <comment>Your username.</comment>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>10</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </username>
                         <key translate="label comment">
                             <label>API Key</label>
                             <comment>The API Key.</comment>

@@ -75,10 +75,6 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
     const SHIPMENT_V2_ACTIVE_FROM = 25;
     const MAX_STREET_LENGTH = 40;
 
-    /**
-     * @var string
-     */
-    protected $apiUsername = '';
 
     /**
      * @var string
@@ -126,7 +122,7 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
     private $labelDownloadUrl = null;
 
     /**
-     * sets the api username and api key on construct.
+     * sets the api key on construct.
      *
      * @return void
      */
@@ -134,7 +130,6 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
     {
         $storeId  = $this->getStoreId();
         $helper   = Mage::helper('tig_postnl');
-        $username = $helper->getConfig('username', 'api', $storeId);
         $key      = $helper->getConfig('key', 'api', $storeId, true);
         $url      = $helper->getConfig('url');
 
@@ -144,12 +139,11 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
             }
         }
 
-        if (empty($username) && empty($key)) {
+        if (empty($key)) {
             return;
         }
 
         $this->apiUrl      = $url;
-        $this->apiUsername = $username;
         $this->apiKey      = $key;
     }
 
@@ -207,7 +201,6 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
         $helper = Mage::helper('tig_postnl');
 
         $this->storeId     = $storeId;
-        $this->apiUsername = $helper->getConfig('username', 'api', $storeId);
         $this->apiKey      = $helper->getConfig('key', 'api', $storeId, true);
 
         return $this;
@@ -648,7 +641,7 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
      */
     protected function _checkConfigForRequest()
     {
-        if(empty($this->apiUsername) || empty($this->apiKey)){
+        if(empty($this->apiKey)){
             return false;
         }
 
@@ -681,7 +674,6 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
         $checkoutData = json_decode($postNLShipment->getOrder()->getPostnlData(), true);
 
         if($storeId != $this->getStoreId()){
-            $this->apiUsername = $helper->getConfig('username', 'api', $storeId);
             $this->apiKey      = $helper->getConfig('key', 'api', $storeId, true);
         }
 

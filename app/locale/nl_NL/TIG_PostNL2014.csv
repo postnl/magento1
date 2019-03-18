@@ -99,7 +99,6 @@ TIG_PostNL2014::Pickup Belgium title,Ophalen België titel
 TIG_PostNL2014::Pickup Belgium fee,Ophalen België prijs
 TIG_PostNL2014::API Key,API Key,
 TIG_PostNL2014::The API Key.,Stel hier de API key in.
-TIG_PostNL2014::API Username,API Gebruikersnaam
 TIG_PostNL2014::Your username.,Vul hier de gebruikersnaam in voor het platform
 TIG_PostNL2014::To get your personal API credentials you should contact us.,Neem contact met ons op om de API gegevens te ontvangen.
 TIG_PostNL2014::API settings,API Instellingen
