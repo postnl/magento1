@@ -332,48 +332,18 @@ class TIG_PostNL2014_Block_Adminhtml_Sales_Order_Shipment_Create_ConsignmentOpti
         return $returnArray;
     }
 
-
     /**
      * @param $items
      *
      * @return array
      */
-    public function getIsDigitalStamp($items)
+    public function getMultiCollo()
     {
-        $itemWeight = 0;
-        foreach ($items as $item) {
-            $qty = $item->getQty();
-            $qty = $qty == null ? $item->getData('qty_ordered') : $qty;
-            if ($item instanceof Mage_Sales_Model_Order_Shipment_Item) {
-                /** @var Mage_Sales_Model_Order_Item $item */
-                $id = $item->getProductId();
-            } else {
-                /** @var Mage_Sales_Model_Quote_Address_Item $item */
-                $id = $item->getProduct()->getId();
-            }
-
-            $parentIds = Mage::getModel('catalog/product_type_configurable')->getParentIdsByChild($id);
-            if (empty($parentIds)) {
-                $itemWeight += $item->getWeight() * $qty;
-            }
-        }
-
-        // check in which category the weight is and calculate it in grams
-        $itemWeight = $itemWeight * 1000;
-        if ($itemWeight <= 20){
-            $digitalStampUpTo = 20;
-        } else if ($itemWeight <= 50){ // weight between 20 and 50 gram
-            $digitalStampUpTo = 50;
-        } else if ($itemWeight <= 100){ // weight between 50 and 100 gram
-            $digitalStampUpTo = 100;
-        } else if ($itemWeight <= 350){ // weight between 100 and 350 gram
-            $digitalStampUpTo = 350;
-        } else if ($itemWeight <= 2000){ // weight between 350 and 2000 gram
-            $digitalStampUpTo = 2000;
-        }
+        // For now the default multi colli amount is always 1
+        $colloAmount = 1;
 
         $result = array(
-            'digitalStampUpTo'  => $digitalStampUpTo,
+            'colloAmount'       => $colloAmount,
             'selected'          => 'checked="checked"',
         );
 

@@ -283,10 +283,10 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
         $this->requestString = $requestString;
         $this->requestType   = $requestType;
 
-        $header[] = $requestHeader . 'charset=utf-8';
+        $header[] = $requestHeader . 'charset=utf-8;version=1.1';
         $header[] = 'Authorization: basic ' . base64_encode($this->apiKey);
         $header[] = 'User-Agent:'. $this->_getUserAgent();
-        
+
         $this->requestHeader   = $header;
 
         return $this;
@@ -694,6 +694,7 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
                 'email'         => $email,
             ),
             'options'    => $this->_getOptionsData($postNLShipment, $checkoutData),
+            'secondary_shipments' => $this->getSecondaryShipmentsData($postNLShipment)
         );
 
         if ($postNLShipment->getShippingAddress()->getCountry() != 'NL') {
@@ -708,6 +709,10 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
 	        }
             unset($data['recipient']['number']);
             unset($data['recipient']['number_suffix']);
+        }
+
+        if ((int) $postNLShipment['multi_collo_amount'] <= 1){
+            unset($data['secondary_shipments']);
         }
 
         // add customs data for EUR3 and World shipments
@@ -821,6 +826,29 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
         }
 
         $data['carrier'] = 1;
+        return $data;
+    }
+
+    public function getSecondaryShipmentsData(TIG_PostNL2014_Model_Shipment $postNLShipment){
+
+        $multycolloAmount = (int) $postNLShipment['multi_collo_amount'];
+
+        if ($postNLShipment->getShippingAddress()->getCountry() != 'NL' &&
+            $postNLShipment->getShippingAddress()->getCountry() != 'BE' &&
+            $postNLShipment->getShipmentType() !== $postNLShipment::TYPE_PACKAGE_NUMBER) {
+
+            return null;
+        }
+
+        if ($multycolloAmount > 1) {
+            $i = 1;
+            $multycolloAmount--;
+            while ($i <= $multycolloAmount) {
+                $data[] = (object) [];
+                $i++;
+            }
+        }
+
         return $data;
     }
 
