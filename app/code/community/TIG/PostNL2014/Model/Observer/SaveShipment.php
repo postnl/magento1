@@ -148,40 +148,46 @@ class TIG_PostNL2014_Model_Observer_SaveShipment
             Mage::unregister('tig_postnl_consignment_options');
         }
         Mage::register('tig_postnl_consignment_options', $consignmentOptions);
-
+        
         $postNLShipment->setShipmentId($shipment->getId())
-                         ->setConsignmentOptions()
-                         ->createConsignment()
-                         ->save();
+                       ->setConsignmentOptions()
+                       ->createConsignment()
+                       ->save();
 
-        $barcode = $postNLShipment->getBarcode();
-        if ($barcode) {
-            $carrierCode = TIG_PostNL2014_Model_Shipment::POSTNL_CARRIER_CODE;
+        $multicolloAmount = (int) $postNLShipment['multi_collo_amount'];
 
-            $carrierTitle = Mage::getStoreConfig('carriers/' . $carrierCode . '/name', $shipment->getStoreId());
-            //if the other carrier-method is used, get the title
-            if($helper->getPgAddress($postNLShipment)){
-                $carrierTitle = Mage::getStoreConfig('carriers/' . $carrierCode . '/pakjegemak_title', $shipment->getStoreId());
+        $i = 1;
+        $multicolloAmount--;
+        while ($i <= $multicolloAmount) {
+
+            $barcode = $postNLShipment->getBarcode();
+            if ($barcode) {
+                $carrierCode = TIG_PostNL2014_Model_Shipment::POSTNL_CARRIER_CODE;
+
+                $carrierTitle = Mage::getStoreConfig('carriers/' . $carrierCode . '/name', $shipment->getStoreId());
+                //if the other carrier-method is used, get the title
+                if ($helper->getPgAddress($postNLShipment)) {
+                    $carrierTitle = Mage::getStoreConfig('carriers/' . $carrierCode . '/pakjegemak_title', $shipment->getStoreId());
+                }
+
+                $data = array(
+                    'carrier_code' => $carrierCode,
+                    'title'        => $carrierTitle,
+                    'number'       => $barcode,
+                );
+
+                /**
+                 * @var Mage_Sales_Model_Order_Shipment_Track $track
+                 */
+                $track = Mage::getModel('sales/order_shipment_track')->addData($data);
+                $shipment->addTrack($track);
+                $trackCollection = $shipment->getTracksCollection();
+
+                foreach ($trackCollection as $track) {
+                    $track->save();
+                }
             }
-
-
-
-            $data = array(
-                'carrier_code' => $carrierCode,
-                'title'        => $carrierTitle,
-                'number'       => $barcode,
-            );
-
-            /**
-             * @var Mage_Sales_Model_Order_Shipment_Track $track
-             */
-            $track = Mage::getModel('sales/order_shipment_track')->addData($data);
-            $shipment->addTrack($track);
-            $trackCollection = $shipment->getTracksCollection();
-
-            foreach($trackCollection as $track) {
-                $track->save();
-            }
+            $i++;
         }
 
         return $this;

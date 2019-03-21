@@ -661,14 +661,19 @@ class TIG_PostNL2014_Model_Shipment extends Mage_Core_Model_Abstract
 
         $apiInfo    = Mage::getModel('tig_postnl/api_postNL');
         $responseShipments = $apiInfo->getConsignmentsInfoData(array($consignmentId));
-
         $responseShipment = $responseShipments[0];
+
+        $consignmentIds[] = $responseShipment->id;
+        foreach ($responseShipment->secondary_shipments as $secondaryShipments) {
+            $consignmentIds[] = $secondaryShipments->id;
+        }
+        $consignmentIds = implode(';', $consignmentIds);
+
         if($responseShipment){
             $this->updateStatus($responseShipment);
         }
 
-
-        $this->setConsignmentId($consignmentId);
+        $this->setConsignmentId($consignmentIds);
 
         return $this;
     }
@@ -676,12 +681,21 @@ class TIG_PostNL2014_Model_Shipment extends Mage_Core_Model_Abstract
     /**
      * Send barcode mail and set status history comment
      *
-     * @param $responseShipment
+     * @param array $responseShipment
      *
      * @return bool
+     * @throws TIG_PostNL2014_Exception
      */
     public function updateStatus($responseShipment)
     {
+        $barcodeCollection[] = $responseShipment->barcode;
+
+        foreach ($responseShipment->secondary_shipments as $secondaryShipments) {
+            array_push($barcodeCollection, $secondaryShipments->barcode);
+        }
+
+        $barcodes = implode(',', $barcodeCollection);
+
         if (is_object($responseShipment)) {
 
             $this->setStatus($responseShipment->status);
@@ -689,24 +703,23 @@ class TIG_PostNL2014_Model_Shipment extends Mage_Core_Model_Abstract
             if($responseShipment->status > 6){
                 $this->setIsFinal('1');
             }
+
             /**
              * check if barcode is available
              */
-            if ($this->getBarcode() === null && $responseShipment->barcode != $this->getBarcode() && (int)$this->getBarcodeSend() == false && !empty($responseShipment->barcode)) {
+            if ($this->getBarcode() === null && $barcodes != $this->getBarcode() && (int)$this->getBarcodeSend() == false && !empty($responseShipment->barcode)) {
 
-                $barcode = $responseShipment->barcode;
-                $this->setBarcode($barcode);
+                $this->setBarcode($barcodes);
 
-
-                if ($barcode) {
-                    $this->addTrackingCodeToShipment($barcode);
+                if ($barcodes) {
+                    $this->addTrackingCodeToShipment($barcodes);
                 }
 
-                $isSend = $this->helper->sendBarcodeEmail($barcode, $this);
+                $isSend = $this->helper->sendBarcodeEmail($barcodeCollection, $this);
 
                 //add comment to order-comment history
                 $shippingAddress = $this->getShippingAddress();
-                $barcodeUrl = $this->helper->getBarcodeUrl($barcode, $shippingAddress);
+                $barcodeUrl = $this->helper->getBarcodeUrl($barcodes, $shippingAddress);
                 if ($isSend) {
                     //add comment to order-comment history
                     $comment = $this->helper->__('Track&amp;Trace e-mail is sent: %s', $barcodeUrl);
@@ -765,26 +778,31 @@ class TIG_PostNL2014_Model_Shipment extends Mage_Core_Model_Abstract
         $carrierCode = self::POSTNL_CARRIER_CODE;
         $carrierTitle = Mage::getStoreConfig('carriers/' . $carrierCode . '/name', $shipment->getStoreId());
 
-        $data = array(
-            'carrier_code' => $carrierCode,
-            'title'        => $carrierTitle,
-            'number'       => $trackAndTraceCode,
-        );
+        $trackingCode =  explode(",", $trackAndTraceCode);
 
-        /**
-         * @var Mage_Sales_Model_Order_Shipment_Track $track
-         */
-        $track = Mage::getModel('sales/order_shipment_track')->addData($data);
-        $shipment->addTrack($track);
+        foreach ($trackingCode as $trackAndTraceCode) {
 
-        /**
-         * Save the Mage_Sales_Order_Shipment object
-         *
-         * @var Mage_Core_Model_Resource_Transaction $transaction
-         */
-        $transaction = Mage::getModel('core/resource_transaction');
-        $transaction->addObject($shipment)
-                    ->save();
+            $data = array(
+                'carrier_code' => $carrierCode,
+                'title'        => $carrierTitle,
+                'number'       => $trackAndTraceCode,
+            );
+
+            /**
+             * @var Mage_Sales_Model_Order_Shipment_Track $track
+             */
+            $track = Mage::getModel('sales/order_shipment_track')->addData($data);
+            $shipment->addTrack($track);
+
+            /**
+             * Save the Mage_Sales_Order_Shipment object
+             *
+             * @var Mage_Core_Model_Resource_Transaction $transaction
+             */
+            $transaction = Mage::getModel('core/resource_transaction');
+            $transaction->addObject($shipment)
+                        ->save();
+        }
 
         return $this;
     }
