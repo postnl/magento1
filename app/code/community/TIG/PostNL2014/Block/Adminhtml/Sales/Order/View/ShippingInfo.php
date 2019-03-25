@@ -135,8 +135,11 @@ class TIG_PostNL2014_Block_Adminhtml_Sales_Order_View_ShippingInfo extends Mage_
         foreach ($this->_postNLShipments as $postNLShipment) {
             $shipmentUrl = Mage::helper('adminhtml')->getUrl("*/sales_shipment/view", array('shipment_id'=>$postNLShipment->getShipment()->getId()));
 
-            $linkText = $postNLShipment->getBarcode() ? $postNLShipment->getBarcode() : $this->__('Shipment');
-            $optionsHtml .= '<p><a href="'.$shipmentUrl.'">' . $linkText . '</a>: ' . $this->_helper->getCurrentOptionsHtml($postNLShipment) .'</p>';
+            $separateBarcodes = explode(",", $postNLShipment->getBarcode());
+            foreach ($separateBarcodes as $separateBarcode) {
+                $linkText = $separateBarcode ? $separateBarcode : $this->__('Shipment');
+                $optionsHtml .= '<p><a href="'.$shipmentUrl.'">' . $linkText . '</a>: ' . $this->_helper->getCurrentOptionsHtml($postNLShipment) .'</p>';
+            }
         }
 
         return $optionsHtml;

@@ -672,6 +672,7 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
         $order = $postNLShipment->getOrder();
         $storeId = $order->getStore()->getId();
         $checkoutData = json_decode($postNLShipment->getOrder()->getPostnlData(), true);
+        $countryCode = $postNLShipment->getShippingAddress()->getCountry();
 
         if($storeId != $this->getStoreId()){
             $this->apiKey      = $helper->getConfig('key', 'api', $storeId, true);
@@ -693,11 +694,11 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
                 'city'          => trim($shippingAddress->getCity()),
                 'email'         => $email,
             ),
-            'options'    => $this->_getOptionsData($postNLShipment, $checkoutData),
-            'secondary_shipments' => $this->getSecondaryShipmentsData($postNLShipment)
+            'options'    => $this->_getOptionsData($postNLShipment, $checkoutData, $countryCode),
+            'secondary_shipments' => $this->getSecondaryShipmentsData($postNLShipment, $countryCode)
         );
 
-        if ($postNLShipment->getShippingAddress()->getCountry() != 'NL') {
+        if ($countryCode != 'NL') {
             $phone           = $order->getBillingAddress()->getTelephone();
             if ($phone)
                 $data['recipient']['phone'] = $phone;
@@ -829,14 +830,11 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
         return $data;
     }
 
-    public function getSecondaryShipmentsData(TIG_PostNL2014_Model_Shipment $postNLShipment){
+    public function getSecondaryShipmentsData(TIG_PostNL2014_Model_Shipment $postNLShipment, $countryCode){
 
         $multycolloAmount = (int) $postNLShipment['multi_collo_amount'];
 
-        if ($postNLShipment->getShippingAddress()->getCountry() != 'NL' &&
-            $postNLShipment->getShippingAddress()->getCountry() != 'BE' &&
-            $postNLShipment->getShipmentType() !== $postNLShipment::TYPE_PACKAGE_NUMBER) {
-
+        if ($countryCode != 'NL' && $countryCode != 'BE' && $postNLShipment->getShipmentType() !== $postNLShipment::TYPE_PACKAGE_NUMBER) {
             return null;
         }
 
@@ -860,7 +858,7 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
      * @param $checkoutData
      * @return array
      */
-    protected function _getOptionsData(TIG_PostNL2014_Model_Shipment $postNLShipment, $checkoutData)
+    protected function _getOptionsData(TIG_PostNL2014_Model_Shipment $postNLShipment, $checkoutData, $countryCode)
     {
         /**
          * @var TIG_PostNL2014_Helper_Data $helper
@@ -948,7 +946,7 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
             $data['insurance']['currency'] = 'EUR';
         }
 
-		if ($postNLShipment->getShippingAddress()->getCountry() != 'NL' || $data['package_type'] == 2) {
+		if ($countryCode != 'NL' || $data['package_type'] == 2) {
 			// strip all Dutch domestic options if shipment is not NL or package_type is mailbox
 			unset($data['only_recipient']);
 			unset($data['signature']);
