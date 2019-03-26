@@ -4,7 +4,7 @@
     "type": "magento-module",
     "license": "GNU",
     "minimum-stability": "stable",
-    "homepage": "https://github.com/postnlnl/magento1",
+    "homepage": "https://github.com/postnl/magento1",
     "require": {
         "magento-hackathon/magento-composer-installer": "*"
     }
