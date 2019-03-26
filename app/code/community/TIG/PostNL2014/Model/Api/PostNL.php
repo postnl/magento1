@@ -832,21 +832,20 @@ class TIG_PostNL2014_Model_Api_PostNL extends Varien_Object
 
     public function getSecondaryShipmentsData(TIG_PostNL2014_Model_Shipment $postNLShipment, $countryCode){
 
-        $multycolloAmount = (int) $postNLShipment['multi_collo_amount'];
+        $multicolloAmount = (int) $postNLShipment['multi_collo_amount'];
 
         if ($countryCode != 'NL' && $countryCode != 'BE' && $postNLShipment->getShipmentType() !== $postNLShipment::TYPE_PACKAGE_NUMBER) {
             return null;
         }
 
-        if ($multycolloAmount > 1) {
+        if ($multicolloAmount > 1) {
             $i = 1;
-            $multycolloAmount--;
-            while ($i <= $multycolloAmount) {
+            $multicolloAmount--;
+            while ($i <= $multicolloAmount) {
                 $data[] = (object) [];
                 $i++;
             }
         }
-
         return $data;
     }
 

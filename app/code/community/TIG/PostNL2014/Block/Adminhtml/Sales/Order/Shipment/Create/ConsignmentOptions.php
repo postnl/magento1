@@ -339,7 +339,6 @@ class TIG_PostNL2014_Block_Adminhtml_Sales_Order_Shipment_Create_ConsignmentOpti
      */
     public function getMultiCollo()
     {
-        // For now the default multi colli amount is always 1
         $colloAmount = 1;
 
         $result = array(
