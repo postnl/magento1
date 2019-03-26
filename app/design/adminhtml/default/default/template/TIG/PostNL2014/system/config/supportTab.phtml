@@ -46,7 +46,7 @@
             <tr>
                 <td colspan="3">
                     <div class="text-box">
-                        <?php $url = 'https://postnlnl.github.io/magento1/';?>
+                        <?php $url = 'https://postnl.github.io/magento1/';?>
                         <h4><?php echo $_helper->__('To read the instructions for the Magento extension, click <a target="_blank" href="%s">here</a>.',$url); ?></h4>
                     </div>
                 </td>
@@ -111,27 +111,27 @@
                         <h3><?php echo $_helper->__('Documents');?></h3>
                         <ul>
                             <li>
-                                <a class="link" target="_blank" href="https://github.com/postnlnl/magento1/releases/latest" title="<?php echo $_helper->__('Latest stable release');?>">
+                                <a class="link" target="_blank" href="https://github.com/postnl/magento1/releases/latest" title="<?php echo $_helper->__('Latest stable release');?>">
                                     <?php echo $_helper->__('Latest stable release');?>
                                 </a>  <span id="current_version"></span>
                                 <script>
-                                    mypajQuery.get('https://api.github.com/repos/postnlnl/magento1/releases/latest', function (data) {
+                                    mypajQuery.get('https://api.github.com/repos/postnl/magento1/releases/latest', function (data) {
                                         mypajQuery('#current_version').html('(' + data.name + ')');
                                     });
                                 </script>
                             </li>
                             <li>
-                                <a class="link" target="_blank" href="https://github.com/postnlnl/magento1/releases" title="<?php echo $_helper->__('Full changelog');?>">
+                                <a class="link" target="_blank" href="https://github.com/postnl/magento1/releases" title="<?php echo $_helper->__('Full changelog');?>">
                                     <?php echo $_helper->__('Full changelog');?>
                                 </a>
                             </li>
                             <li>
-                                <a class="link" target="_blank" href="https://postnlnl.github.io/magento1/" title="<?php echo $_helper->__('Installation and configuration instructions');?>">
+                                <a class="link" target="_blank" href="https://postnl.github.io/magento1/" title="<?php echo $_helper->__('Installation and configuration instructions');?>">
                                     <?php echo $_helper->__('Installation and configuration instructions');?>
                                 </a>
                             </li>
                             <li>
-                                <a class="link" target="_blank" href="https://postnlnl.github.io/magento1/#6" title="<?php echo $_helper->__('Overview articles in knowledge base');?>">
+                                <a class="link" target="_blank" href="https://postnl.github.io/magento1/#6" title="<?php echo $_helper->__('Overview articles in knowledge base');?>">
                                     <?php echo $_helper->__('Overview articles in knowledge base');?>
                                 </a>
                             </li>
