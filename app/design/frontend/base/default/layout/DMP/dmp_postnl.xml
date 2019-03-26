@@ -3,7 +3,7 @@
     <default>
         <reference name="before_body_end">
             <block type="core/template" name="postnl_checkout_base_url"
-                   template="DMP/PostNL2014/checkout/baseUrl.phtml"/>
+                   template="DMP/PostNL/checkout/baseUrl.phtml"/>
         </reference>
     </default>
 
@@ -12,31 +12,31 @@
         <reference name="head">
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/jquery-postnl.min.js</file>
+                <file>js/DMP/PostNL/jquery-postnl.min.js</file>
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/checkout.js</file>
+                <file>js/DMP/PostNL/checkout.js</file>
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/postnl.js</file>
+                <file>js/DMP/PostNL/postnl.js</file>
             </action>
             <action method="addItem">
                 <type>skin_css</type>
-                <file>css/DMP/PostNL2014/postnl_options.css</file>
+                <file>css/DMP/PostNL/postnl_options.css</file>
             </action>
         </reference>
         <reference name="checkout.onepage.shipping_method.available">
             <action method="setTemplate">
-                <template>DMP/PostNL2014/checkout/onepage/shipping_method/available.phtml</template>
+                <template>DMP/PostNL/checkout/onepage/shipping_method/available.phtml</template>
             </action>
         </reference>
     </checkout_onepage_index>
     <checkout_onepage_shippingmethod>
         <reference name="root">
             <action method="setTemplate">
-                <template>DMP/PostNL2014/checkout/onepage/shipping_method/available.phtml</template>
+                <template>DMP/PostNL/checkout/onepage/shipping_method/available.phtml</template>
             </action>
         </reference>
     </checkout_onepage_shippingmethod>
@@ -46,29 +46,29 @@
         <reference name="head">
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/jquery-postnl.min.js</file>
+                <file>js/DMP/PostNL/jquery-postnl.min.js</file>
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/checkout_type/opc_index_index.js</file>
+                <file>js/DMP/PostNL/checkout_type/opc_index_index.js</file>
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/checkout.js</file>
+                <file>js/DMP/PostNL/checkout.js</file>
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/postnl.js</file>
+                <file>js/DMP/PostNL/postnl.js</file>
             </action>
             <action method="addItem">
                 <type>skin_css</type>
-                <file>css/DMP/PostNL2014/postnl_options.css</file>
+                <file>css/DMP/PostNL/postnl_options.css</file>
             </action>
         </reference>
 
         <reference name="checkout.onepage.shipping_method.available">
             <action method="setTemplate">
-                <template>DMP/PostNL2014/checkout/onepage/shipping_method/available.phtml</template>
+                <template>DMP/PostNL/checkout/onepage/shipping_method/available.phtml</template>
             </action>
         </reference>
     </opc_index_index>
@@ -79,35 +79,35 @@
         <reference name="head">
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/jquery-postnl.min.js</file>
+                <file>js/DMP/PostNL/jquery-postnl.min.js</file>
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/checkout_type/onestepcheckout_index_index.js</file>
+                <file>js/DMP/PostNL/checkout_type/onestepcheckout_index_index.js</file>
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/checkout.js</file>
+                <file>js/DMP/PostNL/checkout.js</file>
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/postnl.js</file>
+                <file>js/DMP/PostNL/postnl.js</file>
             </action>
             <action method="addItem">
                 <type>skin_css</type>
-                <file>css/DMP/PostNL2014/postnl_options.css</file>
+                <file>css/DMP/PostNL/postnl_options.css</file>
             </action>
         </reference>
         <reference name="choose-shipping-method">
             <action method="setTemplate">
-                <template>DMP/PostNL2014/checkout/onepage/shipping_method/available.phtml</template>
+                <template>DMP/PostNL/checkout/onepage/shipping_method/available.phtml</template>
             </action>
         </reference>
     </onestepcheckout_index_index>
     <onestepcheckout_ajax_save_billing>
         <reference name="choose-shipping-method">
             <action method="setTemplate">
-                <template>DMP/PostNL2014/checkout/onepage/shipping_method/available.phtml</template>
+                <template>DMP/PostNL/checkout/onepage/shipping_method/available.phtml</template>
             </action>
         </reference>
     </onestepcheckout_ajax_save_billing>
@@ -118,20 +118,20 @@
         <reference name="head">
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/MutationObserver.js</file>
+                <file>js/DMP/PostNL/MutationObserver.js</file>
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <file>js/DMP/PostNL2014/checkout.js</file>
+                <file>js/DMP/PostNL/checkout.js</file>
             </action>
             <action method="addItem">
                 <type>skin_css</type>
-                <file>css/DMP/PostNL2014/checkout.css</file>
+                <file>css/DMP/PostNL/checkout.css</file>
             </action>
         </reference>
         <reference name="before_body_end">
             <block type="dmp_postnl/checkout_js" name="postnl_checkout_js"
-                   template="DMP/PostNL2014/checkout/threesixty_checkout/js.phtml"/>
+                   template="DMP/PostNL/checkout/threesixty_checkout/js.phtml"/>
         </reference>
     </checkout_index_index>-->
 </layout>

@@ -1,0 +1,36 @@
+/* General */
+#dmp_postnl_postnl_support p,
+#dmp_postnl_postnl_support ul,
+#dmp_postnl_postnl_support ol { padding:6px 0 10px;  }
+#dmp_postnl_postnl_support ul.postnl-config-warning {list-style:disc inside none; }
+#dmp_postnl_postnl_support ol { list-style:decimal inside; }
+#dmp_postnl_postnl_support ol ol { list-style:lower-alpha inside; padding:0 0 10px 12px; }
+#dmp_postnl_postnl_support ul ul { list-style:none; padding:0 0 10px 12px; }
+#dmp_postnl_postnl_support h2.content-heading { color:#ea7601; border-bottom:4px solid #dfdfdf; }
+#dmp_postnl_postnl_support h4,
+#dmp_postnl_postnl_support p { margin:0;}
+#dmp_postnl_postnl_support a.pdf { display:inline-block; height:16px; line-height:16px; padding:0 0 0 21px; background:url(../../../images/DMP/PostNL/glyph_pdf.png) no-repeat; }
+#dmp_postnl_postnl_support a.link { display: inline-block; height: 16px; line-height: 16px; padding: 0 0 0 21px; background:url(../../../images/btn_go.gif) no-repeat 0 40%; }
+#dmp_postnl_postnl_support .text-box { background:#fff; padding:9px 16px; margin:6px 0 10px; border:1px solid #ccc; }
+#dmp_postnl_postnl_support table.contact { margin:0 0 25px -1px; }
+#dmp_postnl_postnl_support table.contact td { padding:0; width:110px; }
+#dmp_postnl_postnl_support table.contact td.first {  padding-right:5px; }
+#dmp_postnl_postnl_support table.dmp td a.logo_image { margin-left:10px; }
+#dmp_postnl_postnl_support table.dmp td a.logo_image img {width:45px;}
+
+/* Legend */
+#dmp_postnl_postnl_support #legend li { background:url(../../../images/DMP/PostNL/legend.gif) 0 0 no-repeat; padding-left:14px;  }
+#dmp_postnl_postnl_support #legend li.disabled { background-position:0 4px; }
+#dmp_postnl_postnl_support #legend li.test { background-position:0 -25px; }
+#dmp_postnl_postnl_support #legend li.live { background-position:0 -54px; }
+#dmp_postnl_postnl_support #legend li.advanced { background-position:0 -83px; }
+
+/* Structure */
+#dmp_postnl_postnl_support .form-list,
+#dmp_postnl_postnl_support #supportWrap { width:100% !important; }
+#dmp_postnl_postnl_support #supportWrap .col-left,
+#dmp_postnl_postnl_support #supportWrap .col-right { width:50%; }
+#dmp_postnl_postnl_support #supportWrap .col-faux { padding:0 5px;  }
+
+/* Config Header */
+.content-header h3 { background:transparent url(../../../images/DMP/PostNL/logo_postnl_38.png) 0 0 no-repeat !important; height:38px; padding-left:44px; line-height:38px; }
