@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <DMP_PostNL2014>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Sales/>
+                <Mage_Shipping/>
+                <Mage_Adminhtml/>
+            </depends>
+        </DMP_PostNL2014>
+    </modules>
+</config>

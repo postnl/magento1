@@ -1,0 +1,125 @@
+<?php
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Creative Commons License.
+ * It is available through the world-wide-web at this URL:
+ * http://creativecommons.org/licenses/by-nc-nd/3.0/nl/deed.en_US
+ * If you are unable to obtain it through the world-wide-web, please send an email
+ * to support@postnl-plugins.nl so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this module to newer
+ * versions in the future. If you wish to customize this module for your
+ * needs please contact support@postnl-plugins.nl for more information.
+ *
+ * @copyright   Copyright (c) 2019 DM Productions B.V.
+ * @license     http://creativecommons.org/licenses/by-nc-nd/3.0/nl/deed.en_US
+ */
+?>
+<?php $_helper = Mage::helper('dmp_postnl'); ?>
+<?php $_version = (string) Mage::getConfig()->getModuleConfig("DMP_PostNL2014")->version; ?>
+<tr>
+    <td>
+        <h2 class="content-heading"><?php echo $_helper->__('PostNL version %s', $_version);?></h2>
+        <table id="supportWrap" cellpadding="0" cellspacing="0">
+            <tr>
+                <td colspan="3">
+                    <div class="text-box">
+                        <?php $url = 'https://postnl.github.io/magento1/';?>
+                        <h4><?php echo $_helper->__('To read the instructions for the Magento extension, click <a target="_blank" href="%s">here</a>.',$url); ?></h4>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-left">
+                    <div class="text-box">
+                        <h3><?php echo $_helper->__('When using the extension please note:');?></h3>
+                        <ol>
+                            <li>
+                                <?php echo $_helper->__('To be able to configure the extension you need to possess and use an active account.');?>
+                            </li>
+                            <li>
+                                <?php echo $_helper->__('During the transition phase the old Magento PostNL extension can remain active. However, you do need to turn off PakjeGemak in the old PostNL extension.');?>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="text-box">
+                        <h3><?php echo $_helper->__('Magento &amp; 3rd party version compatibility');?></h3>
+                        <p><?php echo $_helper->__('We cannot guarantee perfect functionality of the extension when you intend to use the extension on a version of Magento that is not supported or when you intend to use the extension together with a 3rd part extension that is not supported. If you have any questions please contact us.<br><br>Supported extensions:'); ?></p>
+                        <ul>
+                            <li><?php echo $_helper->__('Magento Community Edition version');?> v1.6, v1.7, v1.8 &amp; v1.9</li>
+                            <li><?php echo $_helper->__("Idev's OneStepCheckout version");?> v4.0, v4.1 &amp; v4.5</li>
+                            <li><?php echo $_helper->__("IWD's OnePageCheckout version");?> v4.2.2</li>
+                            <li><?php echo $_helper->__("Fire Checkout");?> (Support vanuit Fire Checkout)</li>
+                        </ul>
+                    </div>
+                </td>
+
+                <td class="col-faux"></td>
+
+                <td class="col-right">
+                    <div class="text-box">
+                        <h3><?php echo $_helper->__('Support');?></h3>
+                        <h4><?php echo $_helper->__('Questions and information about your account');?></h4>
+                        <p><?php echo $_helper->__('For questions related to your account, configuration problems, extension conflicts and bugs, please contact us.');?></p>
+                        <table class="contact tig">
+                            <tr>
+                                <td class="first"><?php echo $_helper->__('PostNL');?>:</td>
+                                <td class="last">
+                                    <a target="_blank" href="http://www.postnl.nl">www.postnl.nl</a>
+                                </td>
+                                <td rowspan="3">
+                                    <a class="logo_image" href="http://www.postnl.nl" target="_blank">
+                                        <img src="<?php echo $this->getSkinUrl('images/DMP/PostNL2014/logo_postnl.png'); ?>" alt="" />
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first"><?php echo $_helper->__('Phone');?>:</td>
+                                <td class="last">023 - 30 30 315</td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <?php echo $_helper->__('Email');?>:
+                                </td>
+                                <td class="last"><a href="mailto:info@postnl.nl">info@postnl.nl</a></td>
+                            </tr>
+                        </table>
+                        <h3><?php echo $_helper->__('Documents');?></h3>
+                        <ul>
+                            <li>
+                                <a class="link" target="_blank" href="https://github.com/postnl/magento1/releases/latest" title="<?php echo $_helper->__('Latest stable release');?>">
+                                    <?php echo $_helper->__('Latest stable release');?>
+                                </a>  <span id="current_version"></span>
+                                <script>
+                                    mypajQuery.get('https://api.github.com/repos/postnl/magento1/releases/latest', function (data) {
+                                        mypajQuery('#current_version').html('(' + data.name + ')');
+                                    });
+                                </script>
+                            </li>
+                            <li>
+                                <a class="link" target="_blank" href="https://github.com/postnl/magento1/releases" title="<?php echo $_helper->__('Full changelog');?>">
+                                    <?php echo $_helper->__('Full changelog');?>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="link" target="_blank" href="https://postnl.github.io/magento1/" title="<?php echo $_helper->__('Installation and configuration instructions');?>">
+                                    <?php echo $_helper->__('Installation and configuration instructions');?>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="link" target="_blank" href="https://postnl.github.io/magento1/#6" title="<?php echo $_helper->__('Overview articles in knowledge base');?>">
+                                    <?php echo $_helper->__('Overview articles in knowledge base');?>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
