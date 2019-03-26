@@ -1049,7 +1049,6 @@ class TIG_PostNL2014_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function sendBarcodeEmail($barcode = '', $postNLShipment)
     {
-        // @todo send mail with multi barcode
         $barcode = $barcode[0];
         if (empty($barcode)) {
             return false;
