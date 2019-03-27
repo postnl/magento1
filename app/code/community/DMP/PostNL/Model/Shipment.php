@@ -94,7 +94,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     const TYPE_UNPAID           = 'unstamped';
 
     /**
-     * Shipment types
+     * Delivery types
      */
     const TYPE_PACKAGE_NUMBER       = 1;
     const TYPE_MAILBOX_NUMBER       = 2;
