@@ -116,9 +116,9 @@ class DMP_PostNL_Block_Adminhtml_Sales_Order_View_ShippingInfo extends Mage_Admi
         foreach ($this->_postNLShipments as $postNLShipment) {
             $shipmentUrl = Mage::helper('adminhtml')->getUrl("*/sales_shipment/view", array('shipment_id'=>$postNLShipment->getShipment()->getId()));
 
-            $separateBarcodes = explode(",", $postNLShipment->getBarcode());
-            foreach ($separateBarcodes as $separateBarcode) {
-                $linkText = $separateBarcode ? $separateBarcode : $this->__('Shipment');
+            $barcodeCollection = explode(",", $postNLShipment->getBarcode());
+            foreach ($barcodeCollection as $barcode) {
+                $linkText = $barcode ? $barcode : $this->__('Shipment');
                 $optionsHtml .= '<p><a href="'.$shipmentUrl.'">' . $linkText . '</a>: ' . $this->_helper->getCurrentOptionsHtml($postNLShipment) . '</p>';
             }
         }

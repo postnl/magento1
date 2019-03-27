@@ -83,12 +83,12 @@ class DMP_PostNL_Block_Adminhtml_Widget_Grid_Column_Renderer_ShippingStatus
                 if ($i++ == 1)
                     $html .= "<br />";
 
-                $separateBarcodes = explode(",", $postNLShipment->getBarcode());
-                foreach ($separateBarcodes as $separateBarcode) {
+                $barcodeCollection = explode(",", $postNLShipment->getBarcode());
+                foreach ($barcodeCollection as $barcode) {
 
-                    $barcodeUrl = $helper->getBarcodeUrl($separateBarcode, $destinationData, false);
+                    $barcodeUrl = $helper->getBarcodeUrl($barcode, $destinationData, false);
                     if ($postNLShipment->getBarcode()) {
-                        $html .= "<a href='{$barcodeUrl}' target='_blank'>{$separateBarcode}</a>";
+                        $html .= "<a href='{$barcodeUrl}' target='_blank'>{$barcode}</a>";
                     }
 
                     if ($postNLShipment->getConsignmentId() && $postNLShipment->getShipment()->getShippingAddress() && in_array($postNLShipment->getShipment()->getShippingAddress()->getCountry(), $helper->getReturnCountries())) {
