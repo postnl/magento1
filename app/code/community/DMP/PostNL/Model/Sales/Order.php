@@ -4,7 +4,7 @@
  *  MDN_AdvancedStock_Model_Sales_Order is a fix for a MDN plugin
  *
  *
- *  @author     Reindert Vetter <info@postnl.nl>
+ *  @author     Reindert Vetter <support@postnl-plugins.nl>
  *  @copyright  2016 PostNL
  *  @since      File available since Release 1.5.0
  *  @license    http://creativecommons.org/licenses/by-nc-nd/3.0/nl/deed.en_US
