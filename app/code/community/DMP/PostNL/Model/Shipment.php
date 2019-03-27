@@ -544,7 +544,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         }
 
         /**
-         * is only empty when the postnl shipment is created in a mass-action
+         * Is only empty when the PostNL shipment is created in a mass-action
          */
         if(empty($consignmentOptions) && empty($filteredOptions)){
             $this->calculateConsignmentOptions();
