@@ -94,7 +94,7 @@ class DMP_PostNL_Model_Observer_SaveShipment
         /**
          * check if the current shipment already has a postnl shipment
          */
-        if($helper->hasPostNLShipment($shipment->getId())){
+        if($helper->hasPostNLShipment($shipment->getId())) {
             return $this;
         }
 
