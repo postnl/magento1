@@ -836,7 +836,10 @@ class DMP_PostNL_Model_Api_PostNL extends Varien_Object
      * @param DMP_PostNL_Model_Shipment $postNLShipment
      *
      * @param $checkoutData
+     * @param $countryCode
+     *
      * @return array
+     * @throws Exception
      */
     protected function _getOptionsData(DMP_PostNL_Model_Shipment $postNLShipment, $checkoutData, $countryCode)
     {
