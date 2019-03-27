@@ -92,7 +92,6 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     const TYPE_LETTER_BOX       = 'letter_box';
     const TYPE_NORMAL           = 'normal';
     const TYPE_UNPAID           = 'unstamped';
-    const TYPE_DIGITAL_STAMP    = 'digital_stamp';
 
     /**
      * Shipment types
@@ -100,12 +99,6 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     const TYPE_PACKAGE_NUMBER       = 1;
     const TYPE_MAILBOX_NUMBER       = 2;
     const TYPE_LETTER_NUMBER        = 3;
-    const TYPE_DIGITAL_STAMP_NUMBER = 4;
-
-    /**
-     * Total weight
-     */
-    const WEIGHT_DIGITAL_STAMP = 2000;
 
     /**
      * @var DMP_PostNL_Helper_Data $helper
@@ -821,11 +814,6 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
             case self::TYPE_NORMAL: //no break
             case self::TYPE_UNPAID:
                 $isValid = true;
-                break;
-            case self::TYPE_DIGITAL_STAMP:
-                if ($this->isDutchShipment()) {
-                    $isValid = true;
-                }
                 break;
              case self::TYPE_LETTER_BOX:
                 if ($this->isDutchShipment()) {
