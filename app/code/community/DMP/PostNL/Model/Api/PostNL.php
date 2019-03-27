@@ -811,7 +811,14 @@ class DMP_PostNL_Model_Api_PostNL extends Varien_Object
         return $data;
     }
 
-    public function getSecondaryShipmentsData(DMP_PostNL_Model_Shipment $postNLShipment, $countryCode){
+    /**
+     * @param DMP_PostNL_Model_Shipment $postNLShipment
+     * @param $countryCode
+     * @param null $data
+     *
+     * @return array|null
+     */
+    public function getSecondaryShipmentsData(DMP_PostNL_Model_Shipment $postNLShipment, $countryCode, $data = null){
 
         $amountOfLabels = (int) $postNLShipment['amount_of_labels'];
 
@@ -819,14 +826,13 @@ class DMP_PostNL_Model_Api_PostNL extends Varien_Object
             return null;
         }
 
-        if ($amountOfLabels > 1) {
-            $i = 1;
-            $amountOfLabels--;
-            while ($i <= $amountOfLabels) {
-                $data[] = (object) [];
-                $i++;
-            }
+        $i = 1;
+        $amountOfLabels--;
+        while ($i <= $amountOfLabels) {
+            $data[] = (object) [];
+            $i++;
         }
+
         return $data;
     }
 
