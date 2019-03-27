@@ -180,14 +180,12 @@ class DMP_PostNL_Model_Observer_SaveShipment
                  */
                 $track = Mage::getModel('sales/order_shipment_track')->addData($data);
                 $shipment->addTrack($track);
-                $trackCollection = $shipment->getTracksCollection();
-
-                foreach ($trackCollection as $track) {
-                    $track->save();
-                }
             }
             $i++;
         }
+
+        $shipment->save();
+
         return;
     }
 
