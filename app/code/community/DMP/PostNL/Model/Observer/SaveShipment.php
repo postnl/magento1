@@ -37,7 +37,7 @@ class DMP_PostNL_Model_Observer_SaveShipment
 
         if (!empty($selectedConsignmentOptions['shipment_type'])) {
             $shipmentType = $selectedConsignmentOptions['shipment_type'];
-            if ($shipmentType != DMP_PostNL_Model_Shipment::TYPE_NORMAL) {
+            if ($shipmentType != DMP_PostNL_Model_Shipment::ALIAS_PACKAGE_TYPE_NORMAL) {
                 if(isset($selectedConsignmentOptions['create_consignment'])){
                     $selectedConsignmentOptions = array(
                         'shipment_type' => $shipmentType,
@@ -111,7 +111,7 @@ class DMP_PostNL_Model_Observer_SaveShipment
          */
         if (false !== $helper->getPgAddress($shipment->getOrder())
             && (!isset($registryOptions['shipment_type']) ||
-                $registryOptions['shipment_type'] != DMP_PostNL_Model_Shipment::TYPE_NORMAL
+                $registryOptions['shipment_type'] != DMP_PostNL_Model_Shipment::ALIAS_PACKAGE_TYPE_NORMAL
             )
         )
         {

@@ -33,7 +33,7 @@ if (!$conn->tableColumnExists($tableName, 'shipment_type')) {
             'type'     => Varien_Db_Ddl_Table::TYPE_TEXT,
             'length'   => '16',
             'nullable' => false,
-            'default'  => DMP_PostNL_Model_Shipment::TYPE_NORMAL,
+            'default'  => DMP_PostNL_Model_Shipment::ALIAS_PACKAGE_TYPE_NORMAL,
             'comment'  => 'Shipment Type',
             'after'    => 'updated_at',
         )

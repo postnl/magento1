@@ -275,7 +275,7 @@ class DMP_PostNL_PostnlAdminhtml_ShipmentController extends Mage_Adminhtml_Contr
             try {
                 /** @var Mage_Sales_Model_Order_Shipment $shipment */
                 $shipment = $postNLShipment->getShipment();
-                if($helper->getPgAddress($shipment->getOrder()) && ($shipmentType != DMP_PostNL_Model_Shipment::TYPE_NORMAL && $shipmentType != 'default')){
+                if($helper->getPgAddress($shipment->getOrder()) && ($shipmentType != DMP_PostNL_Model_Shipment::ALIAS_PACKAGE_TYPE_NORMAL && $shipmentType != 'default')){
                     $shipment_url = Mage::helper('adminhtml')->getUrl('adminhtml/sales_order_shipment/view',array('shipment_id' => $shipment->getShipment()->getId()));
                     throw new DMP_PostNL_Exception(
                         $helper->__('The selected shipment type cannot be used. Pakjegemak shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a PostNL shipment, select a different shipment type or go to the shipment page to create a single PostNL shipment. <a target="_blank" href="%s">View shipment</a>',$shipment_url),
@@ -292,7 +292,7 @@ class DMP_PostNL_PostnlAdminhtml_ShipmentController extends Mage_Adminhtml_Contr
             }
 
             //if not the normal shipment-type, no extra options are needed, so reset the consignment options
-            if ($shipmentType != DMP_PostNL_Model_Shipment::TYPE_NORMAL) {
+            if ($shipmentType != DMP_PostNL_Model_Shipment::ALIAS_PACKAGE_TYPE_NORMAL) {
                 $selectedConsignmentOptions = array(
                     'shipment_type' => $shipmentType
                 );
@@ -432,7 +432,7 @@ class DMP_PostNL_PostnlAdminhtml_ShipmentController extends Mage_Adminhtml_Contr
             try {
                 if (!$shipment->hasConsignmentId()) {
 
-                    if($helper->getPgAddress($shipment->getOrder()) && $type != DMP_PostNL_Model_Shipment::TYPE_NORMAL && $type != 'default'){
+                    if($helper->getPgAddress($shipment->getOrder()) && $type != DMP_PostNL_Model_Shipment::ALIAS_PACKAGE_TYPE_NORMAL && $type != 'default'){
                         $shipment_url = Mage::helper('adminhtml')->getUrl('adminhtml/sales_order_shipment/view',array('shipment_id' => $shipment->getShipment()->getId()));
                         throw new DMP_PostNL_Exception(
                             $helper->__('The selected shipment type cannot be used. Pakjegemak shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a PostNL shipment, select a different shipment type or go to the shipment page to create a single PostNL shipment. <a target="_blank" href="%s">View shipment</a>',$shipment_url),
@@ -562,7 +562,7 @@ class DMP_PostNL_PostnlAdminhtml_ShipmentController extends Mage_Adminhtml_Contr
                 if (!$shipment->hasConsignmentId()) {
                     $type = $this->getRequest()->getParam('type_consignment');
 
-                    if($helper->getPgAddress($shipment->getOrder()) && $type != DMP_PostNL_Model_Shipment::TYPE_NORMAL && $type != 'default'){
+                    if($helper->getPgAddress($shipment->getOrder()) && $type != DMP_PostNL_Model_Shipment::ALIAS_PACKAGE_TYPE_NORMAL && $type != 'default'){
                         $shipment_url = Mage::helper('adminhtml')->getUrl('adminhtml/sales_order_shipment/view',array('shipment_id' => $shipment->getShipment()->getId()));
                         throw new DMP_PostNL_Exception(
                             $helper->__('The selected shipment type cannot be used. Pakjegemak shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a PostNL shipment, select a different shipment type or go to the shipment page to create a single PostNL shipment. <a target="_blank" href="%s">View shipment</a>',$shipment_url),

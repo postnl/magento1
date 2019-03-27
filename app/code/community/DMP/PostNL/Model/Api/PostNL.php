@@ -822,7 +822,7 @@ class DMP_PostNL_Model_Api_PostNL extends Varien_Object
 
         $multicolloAmount = (int) $postNLShipment['multi_collo_amount'];
 
-        if ($countryCode != 'NL' && $countryCode != 'BE' && $postNLShipment->getShipmentType() !== $postNLShipment::TYPE_PACKAGE_NUMBER) {
+        if ($countryCode != 'NL' && $countryCode != 'BE' && $postNLShipment->getShipmentType() !== $postNLShipment::PACKAGE_TYPE) {
             return null;
         }
 
@@ -858,7 +858,7 @@ class DMP_PostNL_Model_Api_PostNL extends Varien_Object
          * Add the shipment type parameter.
          */
         switch ($postNLShipment->getShipmentType()) {
-            case $postNLShipment::TYPE_LETTER_BOX:
+            case $postNLShipment::ALIAS_PACKAGE_TYPE_MAILBOX:
                 /* Use mailbox only if no option is selected */
                 if ($helper->shippingMethodIsPakjegemak($postNLShipment->getOrder()->getShippingMethod())) {
                     $packageType = 1;
@@ -866,10 +866,10 @@ class DMP_PostNL_Model_Api_PostNL extends Varien_Object
                     $packageType = 2;
                 }
                 break;
-            case $postNLShipment::TYPE_UNPAID:
+            case $postNLShipment::ALIAS_PACKAGE_TYPE_UNPAID:
                 $packageType = 3;
                 break;
-            case $postNLShipment::TYPE_NORMAL:
+            case $postNLShipment::ALIAS_PACKAGE_TYPE_NORMAL:
             default:
                 $packageType = 1;
 			break;

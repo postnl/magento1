@@ -218,10 +218,10 @@ class DMP_PostNL_Model_Adminhtml_Observer_OrderGrid extends Varien_Object
                             'name'    => 'type_consignment',
                             'type'    => 'select',
                             'options' => array(
-                                'default'     => $helper->__('Accordance with type consignment'),
-                                DMP_PostNL_Model_Shipment::TYPE_NORMAL     => $helper->__('Normal'),
-                                DMP_PostNL_Model_Shipment::TYPE_LETTER_BOX => $helper->__('Letterbox'),
-                                DMP_PostNL_Model_Shipment::TYPE_UNPAID     => $helper->__('Unpaid'),
+                                'default'                                             => $helper->__('Accordance with type consignment'),
+                                DMP_PostNL_Model_Shipment::ALIAS_PACKAGE_TYPE_NORMAL  => $helper->__('Normal'),
+                                DMP_PostNL_Model_Shipment::ALIAS_PACKAGE_TYPE_MAILBOX => $helper->__('Letterbox'),
+                                DMP_PostNL_Model_Shipment::ALIAS_PACKAGE_TYPE_UNPAID  => $helper->__('Unpaid'),
                             ),
                         ),
                         'create_consignment' => array(

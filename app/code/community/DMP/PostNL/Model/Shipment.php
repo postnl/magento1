@@ -89,16 +89,16 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     /**
      * Supported delivery types.
      */
-    const TYPE_LETTER_BOX       = 'letter_box';
-    const TYPE_NORMAL           = 'normal';
-    const TYPE_UNPAID           = 'unstamped';
+    const ALIAS_PACKAGE_TYPE_MAILBOX    = 'letter_box';
+    const ALIAS_PACKAGE_TYPE_NORMAL     = 'normal';
+    const ALIAS_PACKAGE_TYPE_UNPAID     = 'unstamped';
 
     /**
      * Delivery types
      */
-    const TYPE_PACKAGE_NUMBER       = 1;
-    const TYPE_MAILBOX_NUMBER       = 2;
-    const TYPE_LETTER_NUMBER        = 3;
+    const PACKAGE_TYPE  = 1;
+    const MAILBOX_TYPE  = 2;
+    const LETTER_TYPE   = 3;
 
     /**
      * @var DMP_PostNL_Helper_Data $helper
@@ -525,14 +525,14 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
 
         if (!key_exists('type_consignment', $registryOptions) || $registryOptions['type_consignment'] == null || $registryOptions['type_consignment'] == 'default') {
             if ($this->helper->getPackageType($this->getShipment()->getItemsCollection(), $this->getShippingAddress()->getCountryId(), false, $hasExtraOptions) == 1) {
-            	$type = self::TYPE_NORMAL;
+            	$type = self::ALIAS_PACKAGE_TYPE_NORMAL;
             } else {
-                $type = self::TYPE_LETTER_BOX;
+                $type = self::ALIAS_PACKAGE_TYPE_MAILBOX;
             }
         } else {
             $type = $registryOptions['type_consignment'];
-			if ($type == self::TYPE_LETTER_BOX && $this->helper->shippingMethodIsPakjegemak($this->getShipment()->getOrder()->getShippingMethod())) {
-                $type = self::TYPE_NORMAL;
+			if ($type == self::ALIAS_PACKAGE_TYPE_MAILBOX && $this->helper->shippingMethodIsPakjegemak($this->getShipment()->getOrder()->getShippingMethod())) {
+                $type = self::ALIAS_PACKAGE_TYPE_NORMAL;
             }
         }
 
@@ -562,7 +562,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
 
             if ($option == 'shipment_type') {
                 if (!$this->_isValidType($value)) {
-                    $value = self::TYPE_NORMAL;
+                    $value = self::ALIAS_PACKAGE_TYPE_NORMAL;
                 }
             }
 
@@ -811,11 +811,11 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     {
         $isValid = false;
         switch ($type) {
-            case self::TYPE_NORMAL: //no break
-            case self::TYPE_UNPAID:
+            case self::ALIAS_PACKAGE_TYPE_NORMAL: //no break
+            case self::ALIAS_PACKAGE_TYPE_UNPAID:
                 $isValid = true;
                 break;
-             case self::TYPE_LETTER_BOX:
+             case self::ALIAS_PACKAGE_TYPE_MAILBOX:
                 if ($this->isDutchShipment()) {
                     $isValid = true;
                 }
