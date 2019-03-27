@@ -872,7 +872,7 @@ class DMP_PostNL_Model_Api_PostNL extends Varien_Object
             'only_recipient'        => (int)$postNLShipment->isHomeAddressOnly(),
             'signature'             => (int)$postNLShipment->isSignatureOnReceipt(),
             'return'                => (int)$postNLShipment->getReturnIfNoAnswer(),
-            'label_description' => $postNLShipment->getOrder()->getIncrementId(),
+            'label_description'     => $postNLShipment->getOrder()->getIncrementId(),
         );
 
         if ($checkoutData !== null) {
