@@ -693,7 +693,7 @@ class DMP_PostNL_Model_Api_PostNL extends Varien_Object
             unset($data['recipient']['number_suffix']);
         }
 
-        if ((int) $postNLShipment['amount_of_labels'] <= 1){
+        if ((int) $postNLShipment['multi_collo_amount'] <= 1){
             unset($data['secondary_shipments']);
         }
 
@@ -820,15 +820,15 @@ class DMP_PostNL_Model_Api_PostNL extends Varien_Object
      */
     public function getSecondaryShipmentsData(DMP_PostNL_Model_Shipment $postNLShipment, $countryCode, $data = null){
 
-        $amountOfLabels = (int) $postNLShipment['amount_of_labels'];
+        $multicolloAmount = (int) $postNLShipment['multi_collo_amount'];
 
         if ($countryCode != 'NL' && $countryCode != 'BE' && $postNLShipment->getShipmentType() !== $postNLShipment::TYPE_PACKAGE_NUMBER) {
             return null;
         }
 
         $i = 1;
-        $amountOfLabels--;
-        while ($i <= $amountOfLabels) {
+        $multicolloAmount--;
+        while ($i <= $multicolloAmount) {
             $data[] = (object) [];
             $i++;
         }

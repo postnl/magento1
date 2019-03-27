@@ -135,11 +135,11 @@ class DMP_PostNL_Model_Observer_SaveShipment
                        ->createConsignment()
                        ->save();
 
-        $amountOfLabels = (int) $postNLShipment['amount_of_labels'];
+        $multicolloAmount = (int) $postNLShipment['multi_collo_amount'];
 
         $i = 1;
-        $amountOfLabels--;
-        while ($i <= $amountOfLabels) {
+        $multicolloAmount--;
+        while ($i <= $multicolloAmount) {
 
             $barcode = $postNLShipment->getBarcode();
             if ($barcode) {
