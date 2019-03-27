@@ -14,7 +14,7 @@
  * versions in the future. If you wish to customize this module for your
  * needs please contact support@postnl-plugins.nl for more information.
  *
- * @copyright   Copyright (c) 2019 DM Productions B.V. (http://www.p.nl)
+ * @copyright   Copyright (c) 2019 DM Productions B.V.
  * @license     http://creativecommons.org/licenses/by-nc-nd/3.0/nl/deed.en_US
  */
 class DMP_PostNL_Model_Checkout_Validate
