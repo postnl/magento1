@@ -99,7 +99,7 @@ class DMP_PostNL_Model_Observer_SaveShipment
         }
 
         /**
-         * check if a new consignment must me made
+         * check if a new consignment must be made
          */
         $registryOptions = Mage::registry('dmp_postnl_consignment_options');
         if(empty($registryOptions) || !isset($registryOptions['create_consignment'])){
