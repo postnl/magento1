@@ -135,8 +135,26 @@ class DMP_PostNL_Model_Observer_SaveShipment
                        ->createConsignment()
                        ->save();
 
+        $this->saveMultiColloToTrack($postNLShipment, $shipment, $helper);
+
+        return $this;
+    }
+
+    /**
+     * @param $multicolloAmount
+     * @param $postNLShipment
+     * @param $shipment
+     * @param $helper
+     *
+     * @throws Exception
+     */
+    public function saveMultiColloToTrack($postNLShipment, $shipment, $helper)
+    {
         $multicolloAmount = (int) $postNLShipment['multi_collo_amount'];
 
+        /**
+         * The first label will not be a secondary_shipments (multicollo) shipment and will therefore be skipped
+         */
         $i = 1;
         $multicolloAmount--;
         while ($i <= $multicolloAmount) {
@@ -170,8 +188,7 @@ class DMP_PostNL_Model_Observer_SaveShipment
             }
             $i++;
         }
-
-        return $this;
+        return;
     }
 
 }
