@@ -41,12 +41,12 @@ function checkPendingRequest() {
     }
 };
 
-function postnlSaveBilling() {
+function postNLSaveBilling() {
     setTimeout(function() {
             var currentData = getPostNLLatestData();
 
             if (latestData == currentData) {
-                postnlSaveBilling();
+                postNLSaveBilling();
             } else {
                 get_save_billing_function(BASE_URL + 'onestepcheckout/ajax/save_billing', BASE_URL + 'onestepcheckout/ajax/set_methods_separate', true, true)();
                 latestData = currentData;
@@ -124,6 +124,6 @@ setTimeout(function () {
         "input[id='shipping:city']",
         ".validate-select"
     ].join()).on('change', function () {
-        postnlSaveBilling();
+        postNLSaveBilling();
     });
 }, 1000);
