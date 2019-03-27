@@ -107,7 +107,9 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
      */
     const WEIGHT_DIGITAL_STAMP = 2000;
 
-    /** @var DMP_PostNL_Helper_Data $helper */
+    /**
+     * @var DMP_PostNL_Helper_Data $helper
+     */
     public $helper;
 
     /**
