@@ -683,7 +683,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
             /**
              * check if barcode is available
              */
-            if ($this->getBarcode() === null && $barcodes != $this->getBarcode() && (int)$this->getBarcodeSend() == false && !empty($responseShipment->barcode)) {
+            if ($this->getBarcode() === null && null !== $barcodes && (bool)$this->getBarcodeSend() == false && !empty($responseShipment->barcode)) {
 
                 $this->setBarcode($barcodes);
 
