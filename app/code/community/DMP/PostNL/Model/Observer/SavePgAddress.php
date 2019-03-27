@@ -109,7 +109,7 @@ class DMP_PostNL_Model_Observer_SavePgAddress extends Varien_Object
                 $order->setShippingDescription($methodDescription);
             }
 
-            $order->setPostnlSendDate($sDropOff);
+            $order->setPostNLSendDate($sDropOff);
         }
 
         /**
