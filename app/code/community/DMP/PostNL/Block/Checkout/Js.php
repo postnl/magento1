@@ -14,7 +14,7 @@
  * versions in the future. If you wish to customize this module for your
  * needs please contact support@postnl-plugins.nl for more information.
  *
- * @copyright   Copyright (c) 2019 DM Productions B.V.
+ * @copyright   Copyright (c) 2019 DM Productions B.V. (https://www.dmp.nl)
  * @license     http://creativecommons.org/licenses/by-nc-nd/3.0/nl/deed.en_US
  */
 class DMP_PostNL_Block_Checkout_Js extends Mage_Core_Block_Template
