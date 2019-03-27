@@ -87,7 +87,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     const STATUS_NEW        = 1;
 
     /**
-     * Supported shipment types.
+     * Supported delivery types.
      */
     const TYPE_LETTER_BOX       = 'letter_box';
     const TYPE_NORMAL           = 'normal';
