@@ -74,7 +74,7 @@ class DMP_PostNL_Model_Observer_SavePgAddress extends Varien_Object
         }
 
         /**
-         * Set postnl json data from checkout
+         * Set PostNL json data from checkout
          */
         $postNLData = $quote->getPostnlData();
         $postNLData = $postNLData == null ? array() : json_decode($postNLData, true);
