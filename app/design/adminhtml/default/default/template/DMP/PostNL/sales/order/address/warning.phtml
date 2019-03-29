@@ -1,0 +1,31 @@
+<?php
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Creative Commons License.
+ * It is available through the world-wide-web at this URL:
+ * http://creativecommons.org/licenses/by-nc-nd/3.0/nl/deed.en_US
+ * If you are unable to obtain it through the world-wide-web, please send an email
+ * to support@postnl-plugins.nl so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this module to newer
+ * versions in the future. If you wish to customize this module for your
+ * needs please contact support@postnl-plugins.nl for more information.
+ *
+ * @copyright   Copyright (c) 2014 Total Internet Group B.V. (http://www.totalinternetgroup.nl)
+ * @license     http://creativecommons.org/licenses/by-nc-nd/3.0/nl/deed.en_US
+ *
+ * @var DMP_PostNL_Block_Adminhtml_Sales_Order_Shipment_ShippingInfo $this
+ */
+?>
+<?php $_helper = Mage::helper('dmp_postnl'); ?>
+<li id="dmp_postnl_address_warning"><?php echo $_helper->__('When changing the address, you need to cancel the current PostNL shipment(s) linked to this order and create new PostNL shipments.');?></li>
+<script type="text/javascript">
+    /*<![CDATA[*/
+    $$('ul.messages li.notice-msg ul')[0].insert({
+        bottom: $('dmp_postnl_address_warning')
+    });
+    /*]]>*/
+</script>
