@@ -822,7 +822,7 @@ class DMP_PostNL_Model_Api_PostNL extends Varien_Object
 
         $multicolloAmount = (int) $postNLShipment['multi_collo_amount'];
 
-        if ($countryCode != 'NL' && $countryCode != 'BE' && $postNLShipment->getShipmentType() !== $postNLShipment::PACKAGE_TYPE) {
+        if ($countryCode != 'NL' && $countryCode != 'BE' && $postNLShipment->getShipmentType() !== $postNLShipment::PACKAGE_TYPE_NORMAL) {
             return null;
         }
 

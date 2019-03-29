@@ -1,4 +1,5 @@
 <?php
+
 /**
  * NOTICE OF LICENSE
  *
@@ -84,21 +85,21 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     /**
      * Statusses used by PostNL shipments.
      */
-    const STATUS_NEW        = 1;
+    const STATUS_NEW = 1;
 
     /**
      * Supported delivery types.
      */
-    const ALIAS_PACKAGE_TYPE_MAILBOX    = 'letter_box';
-    const ALIAS_PACKAGE_TYPE_NORMAL     = 'normal';
-    const ALIAS_PACKAGE_TYPE_UNPAID     = 'unstamped';
+    const ALIAS_PACKAGE_TYPE_NORMAL  = 'normal';
+    const ALIAS_PACKAGE_TYPE_MAILBOX = 'letter_box';
+    const ALIAS_PACKAGE_TYPE_UNPAID  = 'unstamped';
 
     /**
      * Delivery types
      */
-    const PACKAGE_TYPE  = 1;
-    const MAILBOX_TYPE  = 2;
-    const LETTER_TYPE   = 3;
+    const PACKAGE_TYPE_NORMAL  = 1;
+    const PACKAGE_TYPE_MAILBOX = 2;
+    const PACKAGE_TYPE_UNPAID  = 3;
 
     /**
      * @var DMP_PostNL_Helper_Data $helper
@@ -129,9 +130,10 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
          * @var Mage_Sales_Model_Order_Shipment $shipment
          */
         $shipmentId = $this->getShipmentId();
-        $shipment = Mage::getModel('sales/order_shipment')->load($shipmentId);
+        $shipment   = Mage::getModel('sales/order_shipment')->load($shipmentId);
 
         $this->setShipment($shipment);
+
         return $shipment;
     }
 
@@ -149,6 +151,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         $orderId = $this->getShipment()->getOrderId();
 
         $this->setOrderId($orderId);
+
         return $orderId;
     }
 
@@ -167,9 +170,10 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
          * @var Mage_Sales_Model_Order $order
          */
         $orderId = $this->getOrderId();
-        $order = Mage::getModel('sales/order')->load($orderId);
+        $order   = Mage::getModel('sales/order')->load($orderId);
 
         $this->setOrder($order);
+
         return $order;
     }
 
@@ -188,6 +192,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         $shippingAddress = $shipment->getShippingAddress();
 
         $this->setShippingAddress($shippingAddress);
+
         return $shippingAddress;
     }
 
@@ -203,13 +208,14 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         }
 
         $shipment = $this->getShipment(false);
-        if (!$shipment || !$shipment->getIncrementId()) {
+        if ( ! $shipment || ! $shipment->getIncrementId()) {
             return null;
         }
 
         $incrementId = $shipment->getIncrementId();
 
         $this->setShipmentIncrementId($incrementId);
+
         return $incrementId;
     }
 
@@ -224,7 +230,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
          * Check if this PostNL shipment has a linked Mage_Sales_Model_Order_Shipment object
          */
         $shipment = $this->getShipment();
-        if (!$shipment) {
+        if ( ! $shipment) {
             return null;
         }
 
@@ -232,7 +238,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
          * Loop through all associated shipment items and add each item's row total to the shipment's total
          */
         $baseGrandTotal = 0;
-        $shipmentItems = $shipment->getAllItems();
+        $shipmentItems  = $shipment->getAllItems();
 
         /**
          * @var Mage_Sales_Model_Order_Shipment_Item $shipmentItem
@@ -251,6 +257,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
             $totalBasePrice = $basePrice * $qty;
             $baseGrandTotal += $totalBasePrice;
         }
+
         return $baseGrandTotal;
     }
 
@@ -266,9 +273,10 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         }
 
         $storeId = $this->getShipment()->getStoreId();
-        $api     = Mage::getModel('dmp_postnl/api_postNL',array('store_id' => $storeId));
+        $api     = Mage::getModel('dmp_postnl/api_postNL', array('store_id' => $storeId));
 
         $this->setApi($api);
+
         return $api;
     }
 
@@ -276,9 +284,9 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     {
 
         $checkoutData = $this->getShipment()->getOrder()->getPostnlData();
-        if($checkoutData !== null) {
+        if ($checkoutData !== null) {
             $aData = json_decode($checkoutData, true);
-            if(key_exists('home_address_only', $aData) && $aData['home_address_only']){
+            if (key_exists('home_address_only', $aData) && $aData['home_address_only']) {
                 return 1;
             }
         }
@@ -290,9 +298,9 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     {
 
         $checkoutData = $this->getShipment()->getOrder()->getPostnlData();
-        if($checkoutData !== null) {
+        if ($checkoutData !== null) {
             $aData = json_decode($checkoutData, true);
-            if(key_exists('signed', $aData) && $aData['signed']){
+            if (key_exists('signed', $aData) && $aData['signed']) {
                 return 1;
             }
         }
@@ -303,14 +311,14 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     public function isXL()
     {
         $consignmentOption = 'is_xl';
-        $orderIsXl = $this->getIsXL();
+        $orderIsXl         = $this->getIsXL();
 
-        if($orderIsXl === null) {
-            $storeId = $this->getOrder()->getStoreId();
+        if ($orderIsXl === null) {
+            $storeId           = $this->getOrder()->getStoreId();
             $orderTotalShipped = $this->getOrderTotal();
 
             $configValue = $this->helper->getConfig($consignmentOption, 'shipment', $storeId);
-            if (!empty($configValue) && $configValue > 0) {
+            if ( ! empty($configValue) && $configValue > 0) {
                 if ($orderTotalShipped >= $configValue) {
                     return 1;
                 } else {
@@ -320,7 +328,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
                 return 0;
             }
         } else {
-            if($orderIsXl == '1') {
+            if ($orderIsXl == '1') {
                 return 1;
             } else {
                 return 0;
@@ -336,20 +344,21 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     {
         $consignmentOption = 'home_address_only';
 
-        $storeId = $this->getOrder()->getStoreId();
+        $storeId           = $this->getOrder()->getStoreId();
         $orderTotalShipped = $this->getOrderTotal();
 
-        $configValue = $this->helper->getConfig($consignmentOption,'shipment',$storeId);
-        if(!empty($configValue) && $configValue > 0){
-            if($orderTotalShipped >= $configValue){
+        $configValue = $this->helper->getConfig($consignmentOption, 'shipment', $storeId);
+        if ( ! empty($configValue) && $configValue > 0) {
+            if ($orderTotalShipped >= $configValue) {
                 return array(
-                    'option' => $consignmentOption,
+                    'option'   => $consignmentOption,
                     'selected' => 1,
                 );
             }
         }
+
         return array(
-            'option' => $consignmentOption,
+            'option'   => $consignmentOption,
             'selected' => 0,
         );
 
@@ -362,20 +371,21 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     {
         $consignmentOption = 'signature_on_receipt';
 
-        $storeId = $this->getOrder()->getStoreId();
+        $storeId           = $this->getOrder()->getStoreId();
         $orderTotalShipped = $this->getOrderTotal();
 
-        $configValue = $this->helper->getConfig($consignmentOption,'shipment',$storeId);
-        if(!empty($configValue) && $configValue > 0){
-            if($orderTotalShipped >= $configValue){
+        $configValue = $this->helper->getConfig($consignmentOption, 'shipment', $storeId);
+        if ( ! empty($configValue) && $configValue > 0) {
+            if ($orderTotalShipped >= $configValue) {
                 return array(
-                    'option' => $consignmentOption,
+                    'option'   => $consignmentOption,
                     'selected' => 1,
                 );
             }
         }
+
         return array(
-            'option' => $consignmentOption,
+            'option'   => $consignmentOption,
             'selected' => 0,
         );
     }
@@ -387,20 +397,21 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     {
         $consignmentOption = 'is_xl';
 
-        $storeId = $this->getOrder()->getStoreId();
+        $storeId           = $this->getOrder()->getStoreId();
         $orderTotalShipped = $this->getOrderTotal();
 
-        $configValue = $this->helper->getConfig($consignmentOption,'shipment',$storeId);
-        if(!empty($configValue) && $configValue > 0){
-            if($orderTotalShipped >= $configValue){
+        $configValue = $this->helper->getConfig($consignmentOption, 'shipment', $storeId);
+        if ( ! empty($configValue) && $configValue > 0) {
+            if ($orderTotalShipped >= $configValue) {
                 return array(
-                    'option' => $consignmentOption,
+                    'option'   => $consignmentOption,
                     'selected' => 1,
                 );
             }
         }
+
         return array(
-            'option' => $consignmentOption,
+            'option'   => $consignmentOption,
             'selected' => null,
         );
     }
@@ -412,20 +423,21 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     {
         $consignmentOption = 'return_if_no_answer';
 
-        $storeId = $this->getOrder()->getStoreId();
+        $storeId           = $this->getOrder()->getStoreId();
         $orderTotalShipped = $this->getOrderTotal();
 
-        $configValue = $this->helper->getConfig($consignmentOption,'shipment',$storeId);
-        if(!empty($configValue) && $configValue > 0){
-            if($orderTotalShipped >= $configValue){
+        $configValue = $this->helper->getConfig($consignmentOption, 'shipment', $storeId);
+        if ( ! empty($configValue) && $configValue > 0) {
+            if ($orderTotalShipped >= $configValue) {
                 return array(
-                    'option' => $consignmentOption,
+                    'option'   => $consignmentOption,
                     'selected' => 1,
                 );
             }
         }
+
         return array(
-            'option' => $consignmentOption,
+            'option'   => $consignmentOption,
             'selected' => 0,
         );
     }
@@ -443,23 +455,23 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         $orderTotalShipped = $this->getOrderTotal();
 
         //get the insured values
-        $insuredType100    = $helper->getConfig('insured_100','shipment',$storeId);
-        $insuredType250    = $helper->getConfig('insured_250','shipment',$storeId);
-        $insuredType500    = $helper->getConfig('insured_500','shipment',$storeId);
+        $insuredType100 = $helper->getConfig('insured_100', 'shipment', $storeId);
+        $insuredType250 = $helper->getConfig('insured_250', 'shipment', $storeId);
+        $insuredType500 = $helper->getConfig('insured_500', 'shipment', $storeId);
 
         //check if the values are not empty/zero.
-        $insuredType100    = (!empty($insuredType100) && $insuredType100 > 0)? $insuredType100 : false;
-        $insuredType250    = (!empty($insuredType250) && $insuredType250 > 0)? $insuredType250 : false;
-        $insuredType500    = (!empty($insuredType500) && $insuredType500 > 0)? $insuredType500 : false;
+        $insuredType100 = ( ! empty($insuredType100) && $insuredType100 > 0) ? $insuredType100 : false;
+        $insuredType250 = ( ! empty($insuredType250) && $insuredType250 > 0) ? $insuredType250 : false;
+        $insuredType500 = ( ! empty($insuredType500) && $insuredType500 > 0) ? $insuredType500 : false;
 
 
-        if(false !== $insuredType500 && $orderTotalShipped > $insuredType500){
+        if (false !== $insuredType500 && $orderTotalShipped > $insuredType500) {
             $insuredValue = 500;
-        }elseif(false !== $insuredType250 && $orderTotalShipped > $insuredType250){
+        } elseif (false !== $insuredType250 && $orderTotalShipped > $insuredType250) {
             $insuredValue = 250;
-        }elseif(false !== $insuredType100 && $orderTotalShipped > $insuredType100){
+        } elseif (false !== $insuredType100 && $orderTotalShipped > $insuredType100) {
             $insuredValue = 100;
-        }else{
+        } else {
             $insuredValue = 0;
         }
 
@@ -469,7 +481,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
             'insured_amount' => 0,
         );
 
-        if($insuredValue > 0){
+        if ($insuredValue > 0) {
             $returnArray = array(
                 'option'         => 'insured',
                 'selected'       => 1,
@@ -485,11 +497,11 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
      */
     public function calculateConsignmentOptions()
     {
-        $homeAddressOnly     = $this->getHomeAddressOnlyOption();
+        $homeAddressOnly    = $this->getHomeAddressOnlyOption();
         $signatureOnReceipt = $this->getSignatureOnReceiptOption();
-        $returnIfNoAnswer    = $this->getReturnIfNoAnswerOption();
-        $xl                  = $this->getXlOption();
-        $insured             = $this->getInsuredOption();
+        $returnIfNoAnswer   = $this->getReturnIfNoAnswerOption();
+        $xl                 = $this->getXlOption();
+        $insured            = $this->getInsuredOption();
 
         $this->setDataUsingMethod($homeAddressOnly['option'], $homeAddressOnly['selected']);
         $this->setDataUsingMethod($signatureOnReceipt['option'], $signatureOnReceipt['selected']);
@@ -519,19 +531,19 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         unset($filteredOptions['create_consignment']);
         unset($filteredOptions['type_consignment']);
 
-        if (!empty($filteredOptions) && is_array($filteredOptions)) {
+        if ( ! empty($filteredOptions) && is_array($filteredOptions)) {
             $consignmentOptions = array_merge($consignmentOptions, $registryOptions);
         }
 
-        if (!key_exists('type_consignment', $registryOptions) || $registryOptions['type_consignment'] == null || $registryOptions['type_consignment'] == 'default') {
+        if ( ! key_exists('type_consignment', $registryOptions) || $registryOptions['type_consignment'] == null || $registryOptions['type_consignment'] == 'default') {
             if ($this->helper->getPackageType($this->getShipment()->getItemsCollection(), $this->getShippingAddress()->getCountryId(), false, $hasExtraOptions) == 1) {
-            	$type = self::ALIAS_PACKAGE_TYPE_NORMAL;
+                $type = self::ALIAS_PACKAGE_TYPE_NORMAL;
             } else {
                 $type = self::ALIAS_PACKAGE_TYPE_MAILBOX;
             }
         } else {
             $type = $registryOptions['type_consignment'];
-			if ($type == self::ALIAS_PACKAGE_TYPE_MAILBOX && $this->helper->shippingMethodIsPakjegemak($this->getShipment()->getOrder()->getShippingMethod())) {
+            if ($type == self::ALIAS_PACKAGE_TYPE_MAILBOX && $this->helper->shippingMethodIsPakjegemak($this->getShipment()->getOrder()->getShippingMethod())) {
                 $type = self::ALIAS_PACKAGE_TYPE_NORMAL;
             }
         }
@@ -539,9 +551,10 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         /**
          * Is only empty when the PostNL shipment is created in a mass-action
          */
-        if(empty($consignmentOptions) && empty($filteredOptions)){
+        if (empty($consignmentOptions) && empty($filteredOptions)) {
             $this->calculateConsignmentOptions();
             $this->setDataUsingMethod('shipment_type', $type);
+
             return $this;
         }
 
@@ -553,15 +566,15 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
              * The insured_amount option is dependant on the 'insured' option.
              */
             if ($option == 'insured_amount'
-                && (!isset($registryOptions['insured'])
-                    || $registryOptions['insured'] != '1'
+                && ( ! isset($registryOptions['insured'])
+                     || $registryOptions['insured'] != '1'
                 )
             ) {
                 continue;
             }
 
             if ($option == 'shipment_type') {
-                if (!$this->_isValidType($value)) {
+                if ( ! $this->_isValidType($value)) {
                     $value = self::ALIAS_PACKAGE_TYPE_NORMAL;
                 }
             }
@@ -597,7 +610,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     public function createConsignment()
     {
         $storeId = $this->getOrder()->getStoreId();
-        if (!$this->canCreateConsignment()) {
+        if ( ! $this->canCreateConsignment()) {
             throw new DMP_PostNL_Exception(
                 $this->helper->__('The createConsignment action is currently unavailable.'),
                 'MYPA-0011'
@@ -609,7 +622,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
          *
          * @var DMP_PostNL_Model_Api_PostNL $api
          */
-        $api = $this->getApi();
+        $api      = $this->getApi();
         $response = $api->createConsignmentRequest($this)
                         ->setStoreId($this->getOrder()->getStoreId())
                         ->sendRequest()
@@ -620,9 +633,9 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         /**
          * Validate the response.
          */
-        if (!is_object($aResponse)
-            || !isset($aResponse->data)
-            || !is_numeric($aResponse->data->ids[0]->id)
+        if ( ! is_object($aResponse)
+             || ! isset($aResponse->data)
+             || ! is_numeric($aResponse->data->ids[0]->id)
         ) {
             throw new DMP_PostNL_Exception(
                 $this->helper->__('Invalid createConsignment response: %s', $api->getRequestErrorDetail()),
@@ -635,9 +648,9 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
          */
         $consignmentId = (int) $aResponse->data->ids[0]->id;
 
-        $apiInfo    = Mage::getModel('dmp_postnl/api_postNL');
+        $apiInfo           = Mage::getModel('dmp_postnl/api_postNL');
         $responseShipments = $apiInfo->getConsignmentsInfoData(array($consignmentId));
-        $responseShipment = $responseShipments[0];
+        $responseShipment  = $responseShipments[0];
 
         $consignmentIds[] = $responseShipment->id;
         foreach ($responseShipment->secondary_shipments as $secondaryShipments) {
@@ -645,7 +658,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         }
         $consignmentIds = implode(';', $consignmentIds);
 
-        if($responseShipment){
+        if ($responseShipment) {
             $this->updateStatus($responseShipment);
         }
 
@@ -676,14 +689,14 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
 
             $this->setStatus($responseShipment->status);
 
-            if($responseShipment->status > 6){
+            if ($responseShipment->status > 6) {
                 $this->setIsFinal('1');
             }
 
             /**
              * check if barcode is available
              */
-            if ($this->getBarcode() === null && null !== $barcodes && (bool)$this->getBarcodeSend() == false && !empty($responseShipment->barcode)) {
+            if ($this->getBarcode() === null && null !== $barcodes && (bool) $this->getBarcodeSend() == false && ! empty($responseShipment->barcode)) {
 
                 $this->setBarcode($barcodes);
 
@@ -695,7 +708,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
 
                 //add comment to order-comment history
                 $shippingAddress = $this->getShippingAddress();
-                $barcodeUrl = $this->helper->getBarcodeUrl($barcodes, $shippingAddress);
+                $barcodeUrl      = $this->helper->getBarcodeUrl($barcodes, $shippingAddress);
                 if ($isSend) {
                     //add comment to order-comment history
                     $comment = $this->helper->__('Track&amp;Trace e-mail is sent: %s', $barcodeUrl);
@@ -712,13 +725,13 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
                 /** @var Mage_Sales_Model_Order $order */
                 $order = $this->getOrder();
                 $order->addStatusHistoryComment($comment)
-                    ->setIsVisibleOnFront(false)
-                    ->setIsCustomerNotified(true);
+                      ->setIsVisibleOnFront(false)
+                      ->setIsCustomerNotified(true);
                 $order->save();
                 $this->setOrder($order);
             }
 
-            if($this->hasDataChanges()){
+            if ($this->hasDataChanges()) {
                 $this->save();
             }
 
@@ -742,7 +755,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     {
         $shipment = $this->getShipment();
 
-        if (!$shipment || !$trackAndTraceCode) {
+        if ( ! $shipment || ! $trackAndTraceCode) {
             throw new DMP_PostNL_Exception(
                 $this->helper->__(
                     'Unable to add tracking info: no track&amp;trace code or shipment available.'
@@ -751,10 +764,10 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
             );
         }
 
-        $carrierCode = self::POSTNL_CARRIER_CODE;
+        $carrierCode  = self::POSTNL_CARRIER_CODE;
         $carrierTitle = Mage::getStoreConfig('carriers/' . $carrierCode . '/name', $shipment->getStoreId());
 
-        $trackingCode =  explode(",", $trackAndTraceCode);
+        $trackingCode = explode(",", $trackAndTraceCode);
 
         foreach ($trackingCode as $trackAndTraceCode) {
 
@@ -791,7 +804,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
     public function isDutchShipment()
     {
         $shippingAddress = $this->getShippingAddress();
-        $country = $shippingAddress->getCountryId();
+        $country         = $shippingAddress->getCountryId();
 
         if ($country == 'NL') {
             return true;
@@ -815,7 +828,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
             case self::ALIAS_PACKAGE_TYPE_UNPAID:
                 $isValid = true;
                 break;
-             case self::ALIAS_PACKAGE_TYPE_MAILBOX:
+            case self::ALIAS_PACKAGE_TYPE_MAILBOX:
                 if ($this->isDutchShipment()) {
                     $isValid = true;
                 }
@@ -834,7 +847,7 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         /**
          * If this object is new and does not yet have a status, set the 'new' status.
          */
-        if (!$this->getId() && $this->isObjectNew() && !$this->hasStatus()) {
+        if ( ! $this->getId() && $this->isObjectNew() && ! $this->hasStatus()) {
             $this->setStatus(self::STATUS_NEW);
         }
 
@@ -852,8 +865,9 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         /** @var Mage_Sales_Model_Resource_Order_Shipment_Item $shipmentItem */
         $shipmentItems = $this->getShipment()->getItemsCollection();
         foreach ($shipmentItems as $shipmentItem) {
-            $totalWeight += (float)$shipmentItem->getData('weight') * $shipmentItem->getData('qty');
+            $totalWeight += (float) $shipmentItem->getData('weight') * $shipmentItem->getData('qty');
         }
+
         return $totalWeight;
     }
 }
