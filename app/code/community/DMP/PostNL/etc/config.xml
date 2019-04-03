@@ -2,7 +2,7 @@
 <config>
     <modules>
         <DMP_PostNL>
-            <version>1.17.3-beta.2</version>
+            <version>1.17.4</version>
         </DMP_PostNL>
     </modules>
     <global>
