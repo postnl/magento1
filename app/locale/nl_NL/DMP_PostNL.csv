@@ -1,0 +1,328 @@
+DMP_PostNL::Enabled,Geactiveerd
+DMP_PostNL::Title,Titel
+DMP_PostNL::Method Name,Methode naam
+DMP_PostNL::Rate Type,Tarief type
+DMP_PostNL::Type,Type
+DMP_PostNL::Price,Prijs
+DMP_PostNL::PostNL location active,PostNL locatie actief
+DMP_PostNL::PostNL location fee,PostNL locatie afhandelingskosten
+DMP_PostNL::Condition,Voorwaarde
+DMP_PostNL::Calculate Handling Fee,Verzendkosten berekeningswijze
+DMP_PostNL::Handling Fee,Afhandelingskosten
+DMP_PostNL::Ship to Applicable Countries,Verzend naar beschikbare landen
+DMP_PostNL::Ship to Specific Countries,Verzend naar specifieke landen
+DMP_PostNL::Sort Order,Sorteer bestelling
+DMP_PostNL::Default Shipment Settings,Standaard verzendinstellingen
+DMP_PostNL::Home address only,Alleen huisadres
+DMP_PostNL::Signature on receipt,Handtekening voor ontvangst
+DMP_PostNL::Return if no answer,Retour bij niet aanwezig
+DMP_PostNL::Large package,Groot pakket
+DMP_PostNL::Insured up to &euro; 50,Verzekerd tot &euro; 50
+DMP_PostNL::For NL shipping only,Alleen voor Nederlandse verzendingen
+DMP_PostNL::Insured up to &euro; 250,Verzekerd tot &euro; 250
+"DMP_PostNL::For NL shipping only, shipments outside the EU insured default is &euro; 200","Alleen voor Nederlandse verzendingen, zendingen naar landen buiten de EU zijn standaard verzekerd tot &euro; 200"
+DMP_PostNL::Insured up to &euro; 500,Verzekerd tot &euro; 500
+"DMP_PostNL::For NL shipping only, shipments inside the EU insured default is &euro; 500","Alleen voor Nederlandse verzendingen, zendingen naar landen binnen de EU zijn standaard verzekerd tot &euro; 500"
+DMP_PostNL::Automatically next status,Automatisch volgende status
+DMP_PostNL::Turn the order automatically to the next status after creating a label,Zet de status van een order automatisch naar de volgende status bij het aanmaken van een label
+DMP_PostNL::Customs Shipment Type,Douane verzend type
+DMP_PostNL::Customs Content HS Code,Douane goederen HS code
+"DMP_PostNL::Default content type for Cross Domestic products, see <a href=""https://tarief.douane.nl/arctictariff-public-web/#!/home"" target=""_blank"">https://tarief.douane.nl/</a>"". HS codes can also be connected to categories. The data you enter here will be used as default.,""Standaard goederen type voor Cross Domestic producten, zie <a href=""https://tarief.douane.nl/arctictariff-public-web/#!/home"" target=""_blank"">https://tarief.douane.nl/a> voor de juiste HS code. Maximaal 4 karakters. HS codes kan ook gekoppeld worden per categorie. De gegevens die je hier invoert zal als standaard waarde gebruikt worden."
+DMP_PostNL::Edit options,Opties bewerken
+"DMP_PostNL::Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount. When shipping outside of the EU you can set default values for customs type and customs goods HS code.","Vul hier uw standaard voorkeuren in voor uw verzendopties. Deze instellingen worden als default op al uw zendingen toegepast, indien van toepassing. Deze opties zijn later, per zending, uiteraard nog wel aan te passen tijdens het verwerken. <br/><br/>De opties ""Alleen huisadres"", ""Handtekening bij ontvangst"", ""Retour bij niet aanwezig"" en de verschillende verzekeringen worden actief op basis van het totale order bedrag. Bijvoorbeeld, als u bij ""alleen huisadres"" 50 invult, dan wordt voor alle zendingen voor orders vanaf &euro; 50 standaard de instelling ""alleen huisadres"" aangevinkt. Of als u bij ""Verzekerd tot &euro; 250,-"" het getal 150 invult, dan worden alle orders vanaf &euro; 150 standaard verzekerd voor &euro; 250,- inkoopwaarde.<br/><br/>Indien u zendingen naar landen buiten de EU verstuurt, kunt u optioneel voor deze zendingen een standaard waarde invullen bij het Douane verzendtype en de Douane goederen HS code. Deze waardes kunt u nog aanpassen wanneer u uw zending verwerkt."
+DMP_PostNL::Retourlink e-mail Template,Retourlink e-mail Template
+DMP_PostNL::PLACEHOLDER,PLACEHOLDER
+DMP_PostNL::Track&amp;Trace email template,Track&amp;Trace e-mail Template
+"DMP_PostNL::You can create a new transactional e-mail where the variables {{var tracktrace_url}} and {{var retourlabel_url}} are available. TIP: You can base them on the Order Update template, because {{var order}} is also available.","U kunt een nieuwe transactionele email aanmaken en daarin {{var tracktrace_url}} en {{var retourlabel_url}} gebruiken."
+DMP_PostNL::Print Orientation,Print ori&euml;ntatie
+DMP_PostNL::Select a standard orientation for printing labels.,Selecteer een standaard print ori&euml;ntatie voor het printen van labels.
+DMP_PostNL::Enable test modus,Activeer test modus
+DMP_PostNL::Enable to test the extension,Activeer om test verzendingen te kunnen maken
+DMP_PostNL::Selecting 'No' will overrule all individual settings.,"Wanneer ""nee"" is geselecteerd worden alle individuele instellingen overruled."
+DMP_PostNL::General settings,Algemene instellingen
+DMP_PostNL::Basic settings,Basis instellingen
+DMP_PostNL::Checkout settings,Checkout instellingen
+DMP_PostNL::Cut-off time,Het laatste bestelmoment
+"DMP_PostNL::If a request is made for the delivery options between Friday after, and Monday before, cut-off time then Tuesday will be shown as the next possible delivery date.","Als een bestelling tussen vrijdag na, en maandag voor, het opgegeven bestelmoment wordt gedaan dan zal dinsdag worden getoond als eerstvolgende afleverdag."
+DMP_PostNL::Numbers of days,Aantal dagen vooruit
+DMP_PostNL::day,dag
+DMP_PostNL::days,dagen
+DMP_PostNL::Hide days,Dagen verbergen
+DMP_PostNL::Drop-off days,Verzenddagen
+"DMP_PostNL::Monday","Maandag"
+DMP_PostNL::Tuesday,Dinsdag
+DMP_PostNL::Wednesday,Woensdag
+DMP_PostNL::Thursday,Donderdag
+DMP_PostNL::Friday,Vrijdag
+DMP_PostNL::Saturday,Zaterdag
+DMP_PostNL::Monday delivery,Maandagbezorging
+DMP_PostNL::Note: Monday delivery is only possible when the package is delivered before 15.00 on Saturday at the designated PostNL locations. Click <a href="https://blog.postnl.nl/maandagbezorging" target="_blank">here</a> for more information concerning Monday delivery and the locations.,Let op: Maandaglevering is alleen mogelijk wanneer zaterdag het pakket voor 15.00 wordt geleverd bij één van de hiervoor bestemde PostNL locaties. Klik <a href="https://blog.postnl.nl/maandagbezorging" target="_blank">hier</a> voor de locaties en meer informatie omtrent de maandaglevering.
+DMP_PostNL::Monday delivery cut-off time,Laatste bestelmoment voor maandagbezorging
+"DMP_PostNL::If a request is made before this time on Saturday, Monday will be shown as the next possible delivery date. ","Als een bestelling voor dit tijdstip op zaterdag wordt gedaan zal maandag als eerstvolgende afleverdag worden getoond."
+DMP_PostNL::Dropoff-delay,Vertraging
+"DMP_PostNL::This options allows you to set the number of days it takes you to pick, pack and hand in your parcels at PostNL when ordered before the cutoff time.","Stel hier het aantal dagen in die je nodig hebt om het product (te ontvangen,) te verpakken en aan te bieden bij PostNL, vanaf het moment dat de bestelling is geplaatst."
+DMP_PostNL::No delay,Geen vertraging
+DMP_PostNL::Add style to the checkout,Voeg een css file toe aan de checkout
+DMP_PostNL::Font size,Lettertypegrootte
+DMP_PostNL::Leave blank to automatically determine the font size,Laat leeg om de lettertypegrootte automatisch te bepalen
+DMP_PostNL::Delivery,Bezorging
+DMP_PostNL::Delivery title,Bezorging titel
+DMP_PostNL::Retrieve address title,Adres ophalen titel
+DMP_PostNL::Busy loading title,Bezig met laden titel
+DMP_PostNL::Standard delivery title, Standaardlevering titel
+DMP_PostNL::To determine the base price you have to navigate in the menu to <a id=""shipping_method_link"">Shipping Methods</a>.,Om de basisprijs te bepalen moet je navigeren naar <a id=""shipping_method_link"">Verzendmethodes</a>
+DMP_PostNL::Deliver the package only at address of the intended recipient,Lever het pakket alleen aan het adres van de beoogde ontvanger.
+DMP_PostNL::Home address only title,Alleen huisadres titel
+DMP_PostNL::Home address only fee,Alleen huisadres prijs
+DMP_PostNL::Signature on receipt title,Handtekening voor ontvangst titel
+DMP_PostNL::Signature on receipt fee,Handtekening voor ontvangst prijs
+DMP_PostNL::Home address only and signature on receipt together fee,De prijs van handtekening voor ontvangst en alleen huisadres samen
+DMP_PostNL::If both have been selected this price will be added to the regular shipping price. Leave empty for not using it.,Als beide geselecteerd zijn zal deze prijs bij de normale verzendkosten worden opgeteld. Laat leeg om dit niet te gebruiken.
+DMP_PostNL::Morning delivery,Ochtendlevering
+DMP_PostNL::Morning delivery active,Ochtendlevering actief
+DMP_PostNL::Morning delivery title, Ochtendlevering titel
+DMP_PostNL::Morning delivery fee,Ochtendlevering prijs
+DMP_PostNL::Evening delivery,Avondlevering
+DMP_PostNL::Evening delivery active,Avondlevering actief
+DMP_PostNL::Evening delivery title, Avondlevering titel
+DMP_PostNL::Evening delivery fee,Avondlevering prijs
+DMP_PostNL::Pickup at PostNL location,Ophalen bij PostNL locatie
+DMP_PostNL::Pickup active,Ophalen actief
+DMP_PostNL::Pickup title,Ophalen titel
+DMP_PostNL::Pickup fee,Ophalen prijs
+DMP_PostNL::Pickup Express at PostNL location,Extra vroeg ophalen bij PostNL locatie
+DMP_PostNL::Pickup Express active,Extra vroeg ophalen actief
+DMP_PostNL::Pickup Express fee,Extra vroeg ophalen prijs
+DMP_PostNL::Pickup at Belgium PostNL location,Ophalen bij een Belgische PostNL locatie
+DMP_PostNL::Pickup Belgium active,Ophalen België actief
+DMP_PostNL::Pickup Belgium title,Ophalen België titel
+DMP_PostNL::Pickup Belgium fee,Ophalen België prijs
+DMP_PostNL::API Key,API Key,
+DMP_PostNL::The API Key.,Stel hier de API key in.
+DMP_PostNL::Your username.,Vul hier de gebruikersnaam in voor het platform
+DMP_PostNL::To get your personal API credentials you should contact us.,Neem contact met ons op om de API gegevens te ontvangen.
+DMP_PostNL::API settings,API Instellingen
+DMP_PostNL::Wrong API key. Go to PostNL settings to set the API key.,Verkeerde API key. Ga naar de instellingen van de PostNL plugin om de juiste API key in te vullen.
+DMP_PostNL::Version &amp; Support,Versie &amp; Support
+DMP_PostNL::The log files cannot be downloaded.,De logbestanden kunnen niet gedownload worden.
+DMP_PostNL::An error occurred while processing this action.,Er is een fout opgetreden tijdens het verwerken van deze actie.
+DMP_PostNL::The shipments were successfully created.,De verzendingen zijn succesvol aangemaakt
+DMP_PostNL::None of the shipments could be created. Please check the error messages for more details.,Geen van de verzendingen konden aangemaakt worden. Controleer de foutmeldingen in de logbestanden voor details.
+DMP_PostNL::Please select one or more shipments.,Selecteer &eacute;&eacute;n of meerdere verzendingen.
+DMP_PostNL::Please select one or more orders.,Selecteer &eacute;&eacute;n of meerdere orders.
+DMP_PostNL::PostNL replied with the following warnings:,PostNL heeft geantwoord met de volgende waarschuwingen:
+DMP_PostNL::The following shipments or orders could not be processed:,De volgende verzendingen konden niet verwerkt worden:
+DMP_PostNL::Order #%s cannot be shipped at this time.,Order #%s kan niet verzonden worden op dit moment
+DMP_PostNL::Invalid full street supplied: %s.,Invalide volledige straatnaam opgegeven: %s.
+DMP_PostNL::Address is too long. Make the delivery address less than 40 characters. Click on send (in the order detail page) to create a concept.,Adres is te lang. Maak het bezorgadres korter dan 40 tekens.
+DMP_PostNL::Something went wrong with splitting up address %s.,Er is iets fout gegaan met het opsplitsen van adres %s.
+DMP_PostNL::Something went wrong with splitting up housenumber %s.,Er is iets fout gegaan met het opsplitsen van huisnummer %s.
+DMP_PostNL::Invalid housnumber supplied: %s.,Invalide huisnummer opgegeven: %s
+DMP_PostNL::Invalid session requested.,Invalide sessie opgevraagd
+DMP_PostNL::Invalid message type requested: %s.,Invalide bericht-type opgevraagd: %s
+DMP_PostNL::No message supplied.,Geen bericht meegegeven
+DMP_PostNL::No message type supplied.,Geen bericht-type meegegeven
+DMP_PostNL::Click here for more information from the TiG knowledgebase.,Klik hier voor meer informatie van de TIG kennisbank.
+DMP_PostNL::An error occurred while processing your request: ,Er is een fout opgetreden tijdens het verwerken van dit verzoek:
+DMP_PostNL::The createConsignment action is currently unavailable.,De createConsigment actie is tijdelijk niet beschikbaar
+DMP_PostNL::Invalid createConsignment response.,Invalide createConsignment antwoord
+DMP_PostNL::Streetname is to long: %s.,Straatnaam is te lang: %s (gebruikt maximaal 40 letters)
+DMP_PostNL::Shipping status,Verzend status
+DMP_PostNL::PostNL - Create Shipments,PostNL - Cre&euml;er verzendingen
+DMP_PostNL::PostNL - Print shipping labels,PostNL - Print verzend labels
+DMP_PostNL::Download log files,Download log bestanden
+DMP_PostNL::Unknown rate type specified: %s.,Onbekend tarief type opgegeven: %s.
+DMP_PostNL::Flat,Plat
+DMP_PostNL::Table,Tabel
+DMP_PostNL::Invalid PakjeGemak address.,Ongeldig PostNL locatie adres.
+DMP_PostNL::Invalid phone number.,Invalide telefoonnummer.
+DMP_PostNL::Invalid housenumber extension.,Invalide huisnummer extensie.
+DMP_PostNL::A4,A4
+DMP_PostNL::A6,A6
+DMP_PostNL::Commercial Goods,Commerciele goederen
+DMP_PostNL::Commercial Sample,Commercieel Proef
+DMP_PostNL::Documents,Documenten
+DMP_PostNL::Gift,Gift
+DMP_PostNL::Returned Goods,Retour goederen
+DMP_PostNL::Yes,Ja
+DMP_PostNL::No,Nee
+DMP_PostNL::Postnl Consignment Options,PostNL Verzend Opties
+DMP_PostNL::Insured amount,Verzekerd bedrag
+DMP_PostNL::Insured,Verzekerd
+DMP_PostNL::PostNL version %s,PostNL versie %s
+DMP_PostNL::Magento &amp; 3rd party version compatibility,Magento &amp; derde partijen ondersteuning
+DMP_PostNL::Magento Community Edition version,Magento Community Edition versie
+DMP_PostNL::Magento Enterprise Edition version,Magento Enterprise Edition versie
+DMP_PostNL::Idev's OneStepCheckout version,Idev's OneStepCheckout versie
+DMP_PostNL::IWD's OnePageCheckout version,IWD's OnePageCheckout versie
+DMP_PostNL::Support,Ondersteuning
+DMP_PostNL::The extension is developed by Total Internet Group.,Deze extensie is ontwikkeld door Total Internet Group.
+DMP_PostNL::Account questions and information,Account vragen en informatie
+"DMP_PostNL::For questions related to your account, configuration problems, extension conflicts and bugs, please contact us.","Voor vragen gerelateerd aan uw account, configuratie problemen, extensie conflicten en bugs, neemt u contact op met ons."
+DMP_PostNL::Phone,Telefoon
+DMP_PostNL::Online knowledgebase,Online kennisbank
+DMP_PostNL::Request help directly,Vraag direct hulp
+DMP_PostNL::Email,E-mail
+DMP_PostNL::Documentation,Documentatie
+DMP_PostNL::A list of documents regarding the extension.,Een lijst met document aangaande de extensie.
+DMP_PostNL::View the installation and configuration manual.,Bekijk de installatie en configuratie handleiding.
+DMP_PostNL::Installation and configuration manual,Installatie en configuratie handleiding
+DMP_PostNL::View the user manual.,Bekijk de gebruikers handleiding
+DMP_PostNL::User manual,Gebruikers handleiding
+DMP_PostNL::View the complete changelog of the extension.,Bekijk de volledige release notes van de extensie
+DMP_PostNL::Latest stable release,Laatste stabiele versie
+DMP_PostNL::Full changelog,Volledige release notes
+DMP_PostNL::PostNL PgAddress class missing.,PostNL PgAddress class mist
+DMP_PostNL::Select a transactional e-mail template to send the retourlink,Selecteer een transactionele e-mail template om de retourlink te verzenden.
+DMP_PostNL::Select a transactional e-mail template to send the barcode,Selecteer een transactionele e-mail template om de Track&amp;Trace code te versturen
+DMP_PostNL::You can create a new transactional e-mail where the variables {{var retourlink}} is available.,"Maak een transactionele e-mail aan, daarin zal de variabele {{var retourlink}} beschikbaar zijn om te retourlink te verzenden."
+DMP_PostNL::Unable to send track and trace email for shipment #,Versturen van track & trace e-mail mislukt voor zending #
+DMP_PostNL::Track&amp;Trace e-mail is sent: %s,Track & Trace e-mail is verzonden: %s
+DMP_PostNL::Credit Consignment,Crediteer zending
+DMP_PostNL::Mail return label,Mail retourlabel
+DMP_PostNL::Retour label mailed,Retour label is gemaild naar de klant
+DMP_PostNL::This only works for Dutch addresses,Dit werkt alleen voor nederlandse adressen
+DMP_PostNL::Name client,Naam klant
+DMP_PostNL::Email client,Email klant
+DMP_PostNL::Label description,Eigen kenmerk
+DMP_PostNL::You did not specify a name,Je hebt geen naam opgeven
+DMP_PostNL::You did not specify a email,Je hebt geen email opgeven
+DMP_PostNL::Mail send to,Mail verzonden naar
+"DMP_PostNL::Credit has not been created, check PostNL backend for details","Credit is niet aangemaakt, zie PostNL backend voor meer informatie."
+DMP_PostNL::Consignment %s is credited at PostNL,Zending %s is gecrediteerd bij PostNL.
+"DMP_PostNL::Select 'no' if you have problems with addresses on the labels","Selecteer 'nee' als u problemen heeft met adressen op de labels."
+DMP_PostNL::Split street parts,Deel straatnaam velden op
+DMP_PostNL::Streetname field,Straatnaam veld
+DMP_PostNL::Housenr. field,Huisnummer veld
+DMP_PostNL::Split house number parts,Deel huisnummervelden op
+DMP_PostNL::Housenr. extension field,Huisnr. extensie veld
+DMP_PostNL::Street line #%s,Adresregel #%s
+DMP_PostNL::The weight in Magento is specified in gram instead of kg,Het gewicht in Magento is opgegeven in gram i.p.v. kg
+DMP_PostNL::Select 'Yes' if the weight is not properly picked up by the PostNL plugin,Selecteer 'Ja' als het gewicht niet goed wordt opgepakt door de PostNL plugin
+DMP_PostNL::This will be added to the regular shipping price,Dit zal bij de normale verzendkosten worden opgeteld
+DMP_PostNL::Not possible if Pickup at PostNL location is not active,Dit zal niet mogelijk zijn zodra ophalen bij een PostNL locatie niet geactiveerd is
+DMP_PostNL::Default shipment type for Cross Domestic shipments,Standaard verzend inhoud voor Cross Domestic verzendingen
+"DMP_PostNL::When changing the address, you need to cancel the current PostNL shipment(s) linked to this order and create new PostNL shipments.","Wanneer het adres gewijzigd wordt, bent u genoodzaakt om de gekoppelde PostNL verzendingen te crediteren en nieuwe PostNL verzendingen aan te maken."
+"DMP_PostNL::To read the instructions for the Magento extension, click <a target=""_blank"" href=""%s"">here</a>.","Klik <a target=""_blank"" href=""%s"">hier</a> om de handleiding van de Magento extensie te bekijken."
+DMP_PostNL::When using the extension please note:,Aandachtspunten bij het gebruik van deze extensie:
+DMP_PostNL::To be able to configure the extension you need to possess and use an active account.,U dient een actief account te hebben om de extensie te kunnen configureren.
+"DMP_PostNL::During the transition phase the old Magento PostNL extension can remain active. However, you do need to turn off PakjeGemak in the old PostNL extension.",Indien u de oude PostNL extensie gebruikt kan deze actief blijven in de overgangsfase. Wel dient u PakjeGemak in de oude PostNL extensie uit te schakelen.
+DMP_PostNL::We cannot guarantee perfect functionality of the extension when you intend to use the extension on a version of Magento that is not supported or when you intend to use the extension together with a 3rd part extension that is not supported. If you have any questions please contact us.<br><br>Supported extensions:,"Indien u de extensie wilt gebruiken op een niet-ondersteunde versie of editie van Magento, of als u de extensie wilt gebruiken samen met een 3rd party extensie die niet ondersteund wordt, kunnen wij niet garanderen dat de extensie feilloos zal functioneren. Voor vragen kunt u contact opnemen met ons.<br><br>Ondersteunde extensies:"
+DMP_PostNL::Installation and configuration instructions,Installatie en configuratie handleiding
+DMP_PostNL::Overview articles in knowledge base,Meest gestelde vragen
+DMP_PostNL::Questions and information about your account,Account vragen en informatie
+"DMP_PostNL::Shipments will not be delivered at the neighbours, only on house address.","Zendingen worden niet bij de buren aangeboden, alleen op huisadres."
+DMP_PostNL::Shipments will not go the a pickup point but will be returned directly after multiple delivery attempts.,Zendingen gaan niet naar een afhaallocatie en komen direct retour na bezorgpogingen.
+DMP_PostNL::Unable to save check_status cron expression: %s,Het is niet gelukt om de check_status cron expressie op te slaan: %s
+DMP_PostNL::Some of the shipments could not be created or could not be created at PostNL from the selected orders. See below for detailed information.,Een aantal van de geselecteerde orders is een foutmelding opgetreden tijdens het aanmaken van de verzending. Zie hieronder voor gedetailleerde informatie.
+DMP_PostNL::Select A4 print start position,Selecteer de A4 print start positie
+"DMP_PostNL::Select content type for Cross Domestic products, see <a href=""http://gebruikstarief.douane.nl"" target=""_blank"">http://gebruikstarief.douane.nl</a>","Vul de goederen code voor zendingen buiten de EU in, zie <a href=""http://gebruikstarief.douane.nl"" target=""_blank"">http://gebruikstarief.douane.nl</a> voor de bestaande codes."
+DMP_PostNL::Create PostNL Consignment,Cre&euml;er PostNL verzending
+DMP_PostNL::Orders until today,Alle orders t/m vandaag verzenden
+DMP_PostNL::Send today,Alleen vandaag verzenden
+DMP_PostNL::Send until tomorrow,Alle orders t/m morgen verzenden
+DMP_PostNL::Send later,Later verzenden
+DMP_PostNL::Old orders,Alle orders t/m gisteren
+DMP_PostNL::Track&amp;Trace link: %s,Track&amp;Trace link: %s
+DMP_PostNL::Is letter box parcel,Is brievenbuspakje
+DMP_PostNL::Shipment type,Zendingtype
+DMP_PostNL::Accordance with type consignment,Conform type zending
+DMP_PostNL::Normal,Pakket
+DMP_PostNL::Letter box,Brievenbuspakje
+DMP_PostNL::Unstamped,Ongefrankeerd
+DMP_PostNL::The PostNL consignment is successfully created.,De PostNL zending is succesvol aangemaakt.
+DMP_PostNL::Choose a pickup location,Selecteer PostNL Verzendopties
+DMP_PostNL::Selected post office location:,Geselecteerde postkantoor locatie:
+DMP_PostNL::Zipcode,Postcode
+DMP_PostNL::Search by zipcode, address or city,Zoek op postcode, adres of plaats
+DMP_PostNL::Search by zipcode and housenumber,Zoeken op postcode en huisnummer
+"DMP_PostNL::Search by zipcode, address or city","Zoek op postcode, adres of plaats"
+"DMP_PostNL::Search by zipcode and housenumber","Zoeken op postcode en huisnummer"
+"DMP_PostNL::Unfortunately no locations could be found. Please check your postcode and house number combination.","Er zijn geen resultaten gevonden. Probeer een andere postcode/huisnummer combinatie en/of verwijder de huisnummertoevoeging."
+DMP_PostNL::Housenumber,Huisnummer
+DMP_PostNL::Search,Zoeken
+DMP_PostNL::Nearest postnl pickup points,Dichtstbijzijnde afhaal locaties
+DMP_PostNL::PostNL location Method name,PostNL locatie methode naam
+DMP_PostNL::Unpaid,Ongefrankeerd
+DMP_PostNL::The consignment is already credited.,Deze zending is al gecrediteerd.
+DMP_PostNL::PostNL - Create labels,PostNL - Cre&euml;er labels
+DMP_PostNL::Print packing slip,Print pakbon
+DMP_PostNL::Send,Verzenden
+DMP_PostNL::Today,Vandaag
+DMP_PostNL::Letterbox,Brievenbuspakje
+DMP_PostNL::Select,Selecteer
+DMP_PostNL::Insured up to:,Verzekeren tot:
+DMP_PostNL::Close,Sluiten
+DMP_PostNL::International shipments can not be sent by,Internationale zendingen kunnen niet verzonden worden met een
+DMP_PostNL::Choose a PostNL pickup location,Kies PostNL afhaallocatie
+"DMP_PostNL::The selected shipment-type cannot be used, Pakjegemak-shipments can only be created with the normal shipment type.","Het geselecteerde zending-type kan niet gebruikt worden, 'PostNL locatie' zendingen kunnen enkel aangemaakt worden met het normale verzend-type."
+DMP_PostNL::Create shipments (no labels),Cre&euml;er verzendingen (geen labels)
+DMP_PostNL::Insured up to &euro;%s,Verzekerd tot &euro;%s
+DMP_PostNL::Total order value: &euro; %s,Totaal order bedrag: &euro; %s
+DMP_PostNL::Shipment insured up to &euro; %s purchase value,Verzekerd tot een inkoopbedrag van € %s,-
+DMP_PostNL::Post Office Address,Gekozen afhaallocatie
+"DMP_PostNL::The selected shipment type cannot be used. Pakjegemak shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a PostNL shipment, select a different shipment type or go to the shipment page to create a single PostNL shipment. <a target=""_blank"" href=""%s"">View shipment</a>","De geselecteerde zending type kan niet gebruikt worden. 'PostNL locatie' zendingen kunnen enkel aangemaakt worden middels de normale verzendtype. <br/>De Magento zending is aangemaakt zonder een PostNL zending, selecteer een ander verzend type of ga naar de Magento zending pagina en maak daar een PostNL zending aan. <a target=""_blank"" href=""%s"">Bekijk zending</a>"
+DMP_PostNL::Only for dutch shipments,Alleen voor Nederlandse verzendingen
+"DMP_PostNL::Only for dutch shipments, shipments to outside of the EU are standard ensured up to &euro 200","Alleen voor Nederlandse verzendingen, zendingen naar landen buiten de EU zijn standaard verzekerd tot &euro; 200"
+DMP_PostNL::Always use PostNL,Gebruik PostNL voor alle verzendmethodes
+"DMP_PostNL::Select 'No' in order to set the shipping methods that must be regarded as PostNL.","Selecteer 'Nee' om de verzendmethodes in te stellen die als PostNL beschouwd moet worden."
+DMP_PostNL::Use shipment address for PostNL location,Voeg PostNL locatie toe aan het afleveradres
+DMP_PostNL::Use shipment address for 'Ophalen op een PostNL locatie'. The customer will see the address on the invoice. Set to 'No' if you are using AfterPay.,Gebruik het afleveradres voor 'Ophalen op een PostNL locatie'. De klant zal het adres op het factuur zien. Stel in op 'Nee' als je bijvoorbeeld AfterPay gebruikt.
+DMP_PostNL::Show delivery date on invoice,"Toon bezorgdatum op factuur"
+"DMP_PostNL::Show delivery date on invoice, packing slip, user account and Magento confirmation mail","Toon bezorgdatum op factuur, pakbon, gebruikersaccount en Magento orderbevestiging"
+DMP_PostNL::Use filter in order overview,Gebruik filter in order overzicht
+"DMP_PostNL::Select 'No' if you are using a plugin that is present in the order summary and therefore experience problems.","Selecteer 'nee' als je een plugin gebruikt die aanwezig is in het order overzicht en daardoor problemen ervaart."
+
+DMP_PostNL::status_1,Concept
+DMP_PostNL::status_2,Voorgemeld
+DMP_PostNL::status_3,Aangeboden aan postNL
+DMP_PostNL::status_4,In sorteerproces
+DMP_PostNL::status_5,In distributie
+DMP_PostNL::status_6,Zending bij douane
+DMP_PostNL::status_7,Zending afgeleverd
+DMP_PostNL::status_8,Zending op afhaallocatie
+DMP_PostNL::status_9,Zending afgehaald op afhaallocatie
+DMP_PostNL::status_10,Retourzending afgeleverd
+DMP_PostNL::status_11,Retourzending op afhaallocatie
+DMP_PostNL::status_12,Ongefrankeerd label geprint
+DMP_PostNL::status_13,Gecrediteerd
+DMP_PostNL::status_30,Inactief - Concept
+DMP_PostNL::status_31,Inactief - Voorgemeld
+DMP_PostNL::status_32,Inactief - Aangeboden bij PostNL
+DMP_PostNL::status_33,Inactief - In sorteerprocess
+DMP_PostNL::status_34,Inactief - In distributie
+DMP_PostNL::status_35,Inactief - Zending bij douane
+DMP_PostNL::status_36,Inactief - Zending afgeleverd
+DMP_PostNL::status_37,Inactief - Zending op afhaallocatie
+DMP_PostNL::status_38,Inactief - Zending afgehaald op afhaallocatie
+DMP_PostNL::status_39,Inactief - Retourzending afgeleverd
+DMP_PostNL::status_40,Inactief - Retourzending op afhaallocactie
+DMP_PostNL::status_99,Inactief - Onbekende status
+
+"All Allowed Countries","Alle toegestane landen"
+"Specific Countries","Specifieke landen"
+"The configuration has been saved.","De configuratie is opgeslagen."
+"Weight vs. Destination","Gewicht vs. Bestemming"
+"Price vs. Destination","Prijs vs. Bestemming"
+"# of Items vs. Destination","# Items vs. Bestemming"
+"Fixed","Vast"
+"Percent","Percentage"
+"DMP_PostNL::There are no log files to be downloaded.","Er zijn geen log files om te downloaden."
+DMP_PostNL::PostNL location minimum order total enabled,PostNL locatie minimum totaal bedrag actief
+"DMP_PostNL::PostNL location minimum order total, incl. BTW","PostNL locatie minimum totaal bedrag, incl. BTW"
+DMP_PostNL::Mailbox title,Brievenbuspakje titel
+DMP_PostNL::Leave blank to automate mailbox packets only in the backend,Laat leeg om brievenbuspakjes alleen in de backend te automatiseren
+DMP_PostNL::Mailbox weight,Brievenbuspakje gewicht
+DMP_PostNL::Mailbox with other options,Brievenbuspakje tonen met andere opties
+"DMP_PostNL::Besides assigning weights to all products, you can also specify a volume of each product.","Om deze functie optimaal te gebruiken, stel je eerst het gewicht of volume in van jouw producten."
+DMP_PostNL::Mailbox fee,Brievenbuspakje prijs
+DMP_PostNL::Enter a basic price for a mailbox. The regular price will not affect this price.,Vul een totaalprijs in voor een brievenbuspakje.
+DMP_PostNL::Automate mailbox package,Brievenbuspakje automatiseren
+"DMP_PostNL::PostNL location will not be visible if the subtotal of an order is below this value","'Ophalen op een PostNL locatie' zal niet zichtbaar zijn als het bedrag van een bestelling onder deze waarde valt"
+
+DMP_PostNL::PostNL location:,PostNL locatie:
+DMP_PostNL::deliver:,bezorgen:
+DMP_PostNL::TYPE_night,Avondlevering
+DMP_PostNL::TYPE_morning,Ochtendlevering
+DMP_PostNL::TYPE_standard,Middaglevering
+DMP_PostNL::TYPE_retailexpress,Extra vroeg ophalen

@@ -1,0 +1,211 @@
+DMP_PostNL::Enabled,Enabled
+DMP_PostNL::Title,Title
+DMP_PostNL::Method Name,Method Name
+DMP_PostNL::Rate Type,Rate Type
+DMP_PostNL::Type,Type
+DMP_PostNL::Price,Price
+DMP_PostNL::PostNL location active,PostNL location active
+DMP_PostNL::PostNL location fee,PostNL location fee
+DMP_PostNL::Condition,Condition
+DMP_PostNL::Calculate Handling Fee,Calculate Handling Fee
+DMP_PostNL::Handling Fee,Handling Fee
+DMP_PostNL::Ship to Applicable Countries,Ship to Applicable Countries
+DMP_PostNL::Ship to Specific Countries,Ship to Specific Countries
+DMP_PostNL::Sort Order,Sort Order
+DMP_PostNL::Default Shipment Settings,Default Shipment Settings
+DMP_PostNL::Home address only,Home address only
+DMP_PostNL::Signature on receipt,Signature on receipt
+DMP_PostNL::Return if no answer,Return if no answer
+DMP_PostNL::Large package,Large package
+DMP_PostNL::Insured up to &euro; 50,Insured up to &euro; 50
+DMP_PostNL::For NL shipping only,For NL shipping only
+DMP_PostNL::Insured up to &euro; 250,Insured up to &euro; 250
+"DMP_PostNL::For NL shipping only, shipments outside the EU insured default is &euro; 200","For NL shipping only, shipments outside the EU insured default is &euro; 200"
+DMP_PostNL::Insured up to &euro; 500,Insured up to &euro; 500
+"DMP_PostNL::For NL shipping only, shipments inside the EU insured default is &euro; 500","For NL shipping only, shipments inside the EU insured default is &euro; 500"
+DMP_PostNL::Customs Shipment Type,Customs Shipment Type
+DMP_PostNL::Customs Content HS Code,Customs Content HS Code
+"DMP_PostNL::Default content type for Cross Domestic products, see <a href=""https://tarief.douane.nl/arctictariff-public-web/#!/home"" target=""_blank"">https://tarief.douane.nl/</a>. HS codes can also be connected to categories. The data you enter here will be used as default.","Default content type for Cross Domestic products, see <a href=""https://tarief.douane.nl/arctictariff-public-web/#!/home"" target=""_blank"">https://tarief.douane.nl/</a>. HS codes can also be connected to categories. The data you enter here will be used as default."
+"DMP_PostNL::Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount. When shipping outside of the EU you can set default values for customs type and customs goods HS code.","Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount. When shipping outside of the EU you can set default values for customs type and customs goods HS code."
+DMP_PostNL::Retourlink e-mail Template,Retourlink e-mail Template
+DMP_PostNL::PLACEHOLDER,PLACEHOLDER
+DMP_PostNL::Track&amp;Trace email template,Track&amp;Trace email template
+"DMP_PostNL::You can create a new transactional e-mail where the variables {{var tracktrace_url}} and {{var retourlabel_url}} are available. TIP: You can base them on the Order Update template, because {{var order}} is also available.","You can create a new transactional e-mail where the variables {{var tracktrace_url}} and {{var retourlabel_url}} are available. TIP: You can base them on the Order Update template, because {{var order}} is also available."
+DMP_PostNL::Print Orientation,Print Orientation
+DMP_PostNL::Select a standard orientation for printing labels.,Select a standard orientation for printing labels.
+DMP_PostNL::Enable test modus,Enable test modus
+DMP_PostNL::Enable to test the extension,Enable to test the extension
+DMP_PostNL::Enable Postnl Extension,Enable Postnl Extension
+DMP_PostNL::Enable or disable the PostNL module.,Enable or disable the PostNL module.
+DMP_PostNL::Selecting 'No' will overrule all individual settings.,Selecting 'No' will overrule all individual settings.
+DMP_PostNL::General Settings,General Settings
+DMP_PostNL::API Key,API Key
+DMP_PostNL::The API Key.,The API Key.
+DMP_PostNL::Your username.,Your username.
+DMP_PostNL::To get your personal API credentials you should contact us.,To get your personal API credentials you should contact us.
+DMP_PostNL::API settings,API settings
+DMP_PostNL::Version &amp; Support,Version &amp; Support
+DMP_PostNL::The log files cannot be downloaded.,The log files cannot be downloaded.
+DMP_PostNL::An error occurred while processing this action.,An error occurred while processing this action.
+DMP_PostNL::The shipments were successfully created.,The shipments were successfully created.
+DMP_PostNL::None of the shipments could be created. Please check the error messages for more details.,None of the shipments could be created. Please check the error messages for more details.
+DMP_PostNL::Please select one or more shipments.,Please select one or more shipments.
+DMP_PostNL::Please select one or more orders.,Please select one or more orders.
+DMP_PostNL::PostNL replied with the following warnings:,PostNL replied with the following warnings:
+DMP_PostNL::The following shipments or orders could not be processed:,The following shipments or orders could not be processed:
+DMP_PostNL::Order #%s cannot be shipped at this time.,Order #%s cannot be shipped at this time.
+DMP_PostNL::Invalid full street supplied: %s.,Invalid full street supplied: %s.
+DMP_PostNL::Invalid housnumber supplied: %s.,Invalid housnumber supplied: %s.
+DMP_PostNL::Something went wrong with splitting up address %s.,Something went wrong with splitting up address %s. Add the address manually to the back office of PostNL.
+DMP_PostNL::Something went wrong with splitting up housenumber %s.,Something went wrong with splitting up housenumber %s. Add the address manually to the back office of PostNL.
+DMP_PostNL::Invalid session requested.,Invalid session requested.
+DMP_PostNL::Invalid message type requested: %s.,Invalid message type requested: %s.
+DMP_PostNL::No message supplied.,No message supplied.
+DMP_PostNL::No message type supplied.,No message type supplied.
+DMP_PostNL::Click here for more information from the TiG knowledgebase.,Click here for more information from the TiG knowledgebase.
+DMP_PostNL::An error occurred while processing your request: ,An error occurred while processing your request:
+DMP_PostNL::The createConsignment action is currently unavailable.,The createConsignment action is currently unavailable.
+DMP_PostNL::Invalid createConsignment response.,Invalid createConsignment response.
+DMP_PostNL::Shipping status,Shipping status
+DMP_PostNL::PostNL - Create Shipments,PostNL - Create Shipments
+DMP_PostNL::PostNL - Print shipping labels,PostNL - Print shipping labels
+DMP_PostNL::Download log files,Download log files
+DMP_PostNL::Unknown rate type specified: %s.,Unknown rate type specified: %s.
+DMP_PostNL::Flat,Flat
+DMP_PostNL::Table,Table
+DMP_PostNL::Invalid PakjeGemak address.,Invalid 'Ship to PostNL location' address.
+DMP_PostNL::Invalid phone number.,Invalid phone number.
+DMP_PostNL::Invalid housenumber extension.,Invalid housenumber extension.
+DMP_PostNL::A4,A4
+DMP_PostNL::A6,A6
+DMP_PostNL::Commercial Goods,Commercial Goods
+DMP_PostNL::Commercial Sample,Commercial Sample
+DMP_PostNL::Documents,Documents
+DMP_PostNL::Gift,Gift
+DMP_PostNL::Returned Goods,Returned Goods
+DMP_PostNL::Yes,Yes
+DMP_PostNL::No,No
+DMP_PostNL::Postnl Consignment Options,Postnl Consignment Options
+DMP_PostNL::Insured amount,Insured amount
+DMP_PostNL::Insured,Insured
+DMP_PostNL::PostNL version %s,PostNL version %s
+DMP_PostNL::Magento &amp; 3rd party version compatibility,Magento &amp; 3rd party version compatibility
+DMP_PostNL::Magento Community Edition version,Magento Community Edition version
+DMP_PostNL::Magento Enterprise Edition version,Magento Enterprise Edition version
+DMP_PostNL::Idev's OneStepCheckout version,Idev's OneStepCheckout version
+DMP_PostNL::IWD's OnePageCheckout version,IWD's OnePageCheckout version
+"DMP_PostNL::If you wish to use this extension on an unsupported Magento version or edition, or in combination with an unsupported 3rd party extension, we cannot guarantee the PostNL extension will function as expected. For questions please contact the Total Internet Group servicedesk.","If you wish to use this extension on an unsupported Magento version or edition, or in combination with an unsupported 3rd party extension, we cannot guarantee the PostNL extension will function as expected. For questions please contact the Total Internet Group servicedesk."
+DMP_PostNL::Support,Support
+DMP_PostNL::The extension is developed by Total Internet Group.,The extension is developed by Total Internet Group.
+DMP_PostNL::Account questions and information,Account questions and information
+DMP_PostNL::For questions related to your account, configuration problems, extension conflicts and bugs, please contact us.,For questions related to your account, configuration problems, extension conflicts and bugs, please contact us.
+DMP_PostNL::Phone,Phone
+DMP_PostNL::Online knowledgebase,Online knowledgebase
+DMP_PostNL::Request help directly,Request help directly
+DMP_PostNL::Email,Email
+DMP_PostNL::Documentation,Documentation
+DMP_PostNL::A list of documents regarding the extension.,A list of documents regarding the extension.
+DMP_PostNL::View the installation and configuration manual.,View the installation and configuration manual.
+DMP_PostNL::Installation and configuration manual,Installation and configuration manual
+DMP_PostNL::View the user manual.,View the user manual.
+DMP_PostNL::User manual,User manual
+DMP_PostNL::View the complete changelog of the extension.,View the complete changelog of the extension.
+DMP_PostNL::Full changelog,Full changelog
+DMP_PostNL::PostNL PgAddress class missing.,PostNL PgAddress class missing.
+DMP_PostNL::Select a transactional e-mail template to send the retourlink,Select a transactional e-mail template to send the retourlink
+DMP_PostNL::Select a transactional e-mail template to send the barcode,Select a transactional e-mail template to send the barcode
+DMP_PostNL::You can create a new transactional e-mail where the variables {{var retourlink}} is available.,You can create a new transactional e-mail where the variables {{var retourlink}} is available.
+DMP_PostNL::Unable to send track and trace email for shipment #,Unable to send track and trace email for shipment #
+DMP_PostNL::Track&amp;Trace e-mail is sent: %s,Track&amp;Trace e-mail is sent: %s
+DMP_PostNL::Credit Consignment,Credit Consignment
+DMP_PostNL::Mail return label,Mail return label
+DMP_PostNL::Retour label mailed,Retour label mailed
+"DMP_PostNL::Credit has not been created, check PostNL backend for details","Credit has not been created, check PostNL backend for details"
+DMP_PostNL::Consignment %s is credited at PostNL,Consignment %s is credited at PostNL
+"DMP_PostNL::Select 'no' if you have problems with addresses on the labels","Select 'no' if you have problems with addresses on the labels"
+DMP_PostNL::Split street parts,Split street parts
+DMP_PostNL::Streetname field,Streetname field
+DMP_PostNL::Housenr. field,Housenr. field
+DMP_PostNL::Split house number parts,Split house number parts
+DMP_PostNL::Housenr. extension field,Housenr. extension field
+DMP_PostNL::Street line #%s,Street line #%s
+DMP_PostNL::This will be added to the regular shipping price,This will be added to the regular shipping price
+DMP_PostNL::Not possible if Pickup at PostNL location is not active,Not possible if Pickup at PostNL location is not active
+DMP_PostNL::Default shipment type for Cross Domestic shipments,Default shipment type for Cross Domestic shipments
+"DMP_PostNL::When changing the address, you need to cancel the current PostNL shipment(s) linked to this order and create new PostNL shipments.","When changing the address, you need to cancel the current PostNL shipment(s) linked to this order and create new PostNL shipments."
+"DMP_PostNL::To read the instructions for the Magento extension, click <a target=""_blank"" href=""%s"">here</a>.","To read the instructions for the Magento extension, click <a target=""_blank"" href=""%s"">here</a>."
+DMP_PostNL::When using the extension please note:,When using the extension please note:
+DMP_PostNL::To be able to configure the extension you need to possess and use an active account.,To be able to configure the extension you need to possess and use an active account.
+"DMP_PostNL::During the transition phase the old Magento PostNL extension can remain active. However, you do need to turn off PakjeGemak in the old PostNL extension.","During the transition phase the old Magento PostNL extension can remain active. However, you do need to turn off PakjeGemak in the old PostNL extension."
+DMP_PostNL::We cannot guarantee perfect functionality of the extension when you intend to use the extension on a version of Magento that is not supported or when you intend to use the extension together with a 3rd part extension that is not supported. If you have any questions please contact us.<br><br>Supported extensions:,We cannot guarantee perfect functionality of the extension when you intend to use the extension on a version of Magento that is not supported or when you intend to use the extension together with a 3rd part extension that is not supported. If you have any questions please contact us.<br><br>Supported extensions:
+DMP_PostNL::Installation and configuration instructions,Installation and configuration instructions
+DMP_PostNL::Overview articles in knowledge base,View all articles in the knowledgebase
+DMP_PostNL::Questions and information about your account,Questions and information about your account
+"DMP_PostNL::Shipments will not be delivered at the neighbours, only on house address.","Shipments will not be delivered at the neighbours, only on house address."
+DMP_PostNL::Shipments will not go the a pickup point but will be returned directly after multiple delivery attempts.,Shipments will not go the a pickup point but will be returned directly after multiple delivery attempts.
+DMP_PostNL::Unable to save check_status cron expression: %s,Unable to save check_status cron expression: %s
+DMP_PostNL::Some of the shipments could not be created or could not be created at PostNL from the selected orders. See below for detailed information.,Some of the shipments could not be created or could not be created at PostNL from the selected orders. See below for detailed information.
+DMP_PostNL::Select A4 print start position,Select A4 print start position
+"DMP_PostNL::Select content type for Cross Domestic products, see <a href=""http://gebruikstarief.douane.nl"" target=""_blank"">http://gebruikstarief.douane.nl</a>","Select content type for Cross Domestic products, see <a href=""http://gebruikstarief.douane.nl"" target=""_blank"">http://gebruikstarief.douane.nl</a>"
+DMP_PostNL::Create PostNL Consignment,Create PostNL Consignment
+DMP_PostNL::Track&amp;Trace link: %s,Track&amp;Trace link: %s
+DMP_PostNL::Is letter box parcel,Is letter box parcel
+DMP_PostNL::Shipment type,Shipment type
+DMP_PostNL::Normal,Normal
+DMP_PostNL::Letter box,Letter box
+DMP_PostNL::Unstamped,Unstamped
+DMP_PostNL::The PostNL consignment is successfully created.,The PostNL consignment is successfully created.
+DMP_PostNL::Choose a pickup location,Choose a pickup location
+DMP_PostNL::Zipcode,Zipcode
+"DMP_PostNL::Search by zipcode, address or city","Search by zipcode, address or city"
+DMP_PostNL::Housenumber,Housenumber
+DMP_PostNL::Search,Search
+DMP_PostNL::Nearest postnl pickup points,Nearest postnl pickup points
+DMP_PostNL::PostNL location Method Name,PostNL location Method Name
+DMP_PostNL::Unpaid,Unpaid
+DMP_PostNL::The consignment is already credited.,The consignment is already credited.
+DMP_PostNL::PostNL - Create labels,PostNL - Create labels
+DMP_PostNL::Letterbox,Letterbox
+DMP_PostNL::Select,Select
+DMP_PostNL::Insured up to:,Insured up to:
+DMP_PostNL::Close,Close
+DMP_PostNL::Choose a PostNL pickup location,Choose a PostNL pickup location
+"DMP_PostNL::The selected shipment-type cannot be used, Pakjegemak-shipments can only be created with the normal shipment type.","The selected shipment-type cannot be used, 'Ship to PostNL location' can only be created with the normal shipment type."
+DMP_PostNL::PostNL - Create Magento shipments (no labels),PostNL - Create Magento shipments (no labels)
+DMP_PostNL::Insured up to &euro;%s,Insured up to &euro;%s
+DMP_PostNL::Post Office Address,Post Office Address
+"DMP_PostNL::The selected shipment type cannot be used. Pakjegemak shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a PostNL shipment, select a different shipment type or go to the shipment page to create a single PostNL shipment. <a target=""_blank"" href=""%s"">View shipment</a>","The selected shipment type cannot be used. 'Ship to PostNL location' shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a PostNL shipment, select a different shipment type or go to the shipment page to create a single PostNL shipment. <a target=""_blank"" href=""%s"">View shipment</a>"
+DMP_PostNL::Only for dutch shipments,Only for dutch shipments
+"DMP_PostNL::Only for dutch shipments, shipments to outside of the EU are standard ensured up to &euro 200","Only for dutch shipments, shipments to outside of the EU are standard ensured up to &euro 200"
+
+DMP_PostNL::status_1,Concept
+DMP_PostNL::status_2,Registered
+DMP_PostNL::status_3,Enroute - handed to carrier
+DMP_PostNL::status_4,Enroute - Sorting
+DMP_PostNL::status_5,Enroute - Distribution
+DMP_PostNL::status_6,Enroute - Customs
+DMP_PostNL::status_7,Delivered - At recipient
+DMP_PostNL::status_8,Delivered - Ready for pickup
+DMP_PostNL::status_9,Delivered - Package picked up
+DMP_PostNL::status_10,Delivered - Return shipment
+DMP_PostNL::status_11,Delivered - Return shipment pickup location
+DMP_PostNL::status_12,Unrelated label printed
+DMP_PostNL::status_13,Credited
+DMP_PostNL::status_30,Inactive - Concept
+DMP_PostNL::status_31,Inactive - Registered
+DMP_PostNL::status_32,Inactive - Enroute - Handed to carrier
+DMP_PostNL::status_33,Inactive - Enroute - Sorting
+DMP_PostNL::status_34,Inactive - Enroute - Distribution
+DMP_PostNL::status_35,Inactive - Enroute - Customs
+DMP_PostNL::status_36,Inactive - Delivered - At recipient
+DMP_PostNL::status_37,Inactive - Delivered - Ready for pickup
+DMP_PostNL::status_38,Inactive - Delivered - Package picked up
+DMP_PostNL::status_39,Inactive - Return shipment delivered
+DMP_PostNL::status_40,Inactive - Return shipment pickup location
+DMP_PostNL::status_99,Inactive - Unknown
+
+DMP_PostNL::PostNL location:,to PostNL location:
+DMP_PostNL::deliver:,deliver:
+DMP_PostNL::TYPE_morning,Morning
+DMP_PostNL::TYPE_night,Avondlevering
+DMP_PostNL::TYPE_retailexpress,Extra vroeg ophalen
