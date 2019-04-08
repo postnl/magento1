@@ -179,7 +179,6 @@ DMP_PostNL::You can create a new transactional e-mail where the variables {{var 
 DMP_PostNL::Unable to send track and trace email for shipment #,Versturen van track & trace e-mail mislukt voor zending #
 DMP_PostNL::Track&amp;Trace e-mail is sent: %s,Track & Trace e-mail is verzonden: %s
 DMP_PostNL::Credit Consignment,Crediteer zending
-DMP_PostNL::Mail return label,Mail retourlabel
 DMP_PostNL::Retour label mailed,Retour label is gemaild naar de klant
 DMP_PostNL::This only works for Dutch addresses,Dit werkt alleen voor nederlandse adressen
 DMP_PostNL::Name client,Naam klant

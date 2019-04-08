@@ -89,12 +89,6 @@ class DMP_PostNL_Block_Adminhtml_Sales_Order_Shipment_ShippingInfo extends Mage_
         return $helper->__('Credit Consignment');
     }
 
-    public function getRetourlinkText()
-    {
-        $helper = Mage::helper('dmp_postnl');
-        return $helper->__('Mail return label');
-    }
-
     public function getRetourlinkUrl()
     {
         $shipmentId = $this->getRequest()->getParam('shipment_id');
