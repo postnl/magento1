@@ -90,9 +90,9 @@ DMP_PostNL::Pickup at PostNL location,Ophalen bij PostNL locatie
 DMP_PostNL::Pickup active,Ophalen actief
 DMP_PostNL::Pickup title,Ophalen titel
 DMP_PostNL::Pickup fee,Ophalen prijs
-DMP_PostNL::Pickup Express at PostNL location,Extra vroeg ophalen bij PostNL locatie
-DMP_PostNL::Pickup Express active,Extra vroeg ophalen actief
-DMP_PostNL::Pickup Express fee,Extra vroeg ophalen prijs
+DMP_PostNL::Early morning pick up points,Extra vroeg ophalen bij PostNL locatie
+DMP_PostNL::Early morning pick up points active,Extra vroeg ophalen actief
+DMP_PostNL::Early morning pick up points fee,Extra vroeg ophalen prijs
 DMP_PostNL::Pickup at Belgium PostNL location,Ophalen bij een Belgische PostNL locatie
 DMP_PostNL::Pickup Belgium active,Ophalen België actief
 DMP_PostNL::Pickup Belgium title,Ophalen België titel
