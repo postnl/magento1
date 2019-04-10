@@ -16,7 +16,6 @@ DMP_PostNL::Default Shipment Settings,Default Shipment Settings
 DMP_PostNL::Home address only,Home address only
 DMP_PostNL::Signature on receipt,Signature on receipt
 DMP_PostNL::Return if no answer,Return if no answer
-DMP_PostNL::Large package,Large package
 DMP_PostNL::Insured up to &euro; 50,Insured up to &euro; 50
 DMP_PostNL::For NL shipping only,For NL shipping only
 DMP_PostNL::Insured up to &euro; 250,Insured up to &euro; 250

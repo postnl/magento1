@@ -16,7 +16,6 @@ DMP_PostNL::Default Shipment Settings,Standaard verzendinstellingen
 DMP_PostNL::Home address only,Alleen huisadres
 DMP_PostNL::Signature on receipt,Handtekening voor ontvangst
 DMP_PostNL::Return if no answer,Retour bij niet aanwezig
-DMP_PostNL::Large package,Groot pakket
 DMP_PostNL::Insured up to &euro; 50,Verzekerd tot &euro; 50
 DMP_PostNL::For NL shipping only,Alleen voor Nederlandse verzendingen
 DMP_PostNL::Insured up to &euro; 250,Verzekerd tot &euro; 250

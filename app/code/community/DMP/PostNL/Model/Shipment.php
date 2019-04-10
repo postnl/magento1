@@ -33,7 +33,6 @@
  * @method boolean hasShipmentIncrementId()
  * @method boolean hasBarcodeSend()
  * @method boolean hasShipmentType()
- * @method boolean hasIsXl()
  *
  * @method string getShipmentId()
  * @method string getTrackId()
@@ -51,7 +50,6 @@
  * @method int    getBarcodeSend()
  * @method int    getCustomsContentType()
  * @method string getShipmentType()
- * @method int    getIsXL()
  *
  * @method DMP_PostNL_Model_Shipment setShipmentId(int $value)
  * @method DMP_PostNL_Model_Shipment setOrderId(int $value)
@@ -72,7 +70,6 @@
  * @method DMP_PostNL_Model_Shipment setIsCredit(int $value)
  * @method DMP_PostNL_Model_Shipment setCustomsContentType(int $value)
  * @method DMP_PostNL_Model_Shipment setShipmentType(string $value)
- * @method DMP_PostNL_Model_Shipment setIsXl(int $value)
  *
  */
 class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
@@ -308,34 +305,6 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         return $this->getSignatureOnReceipt();
     }
 
-    public function isXL()
-    {
-        $consignmentOption = 'is_xl';
-        $orderIsXl         = $this->getIsXL();
-
-        if ($orderIsXl === null) {
-            $storeId           = $this->getOrder()->getStoreId();
-            $orderTotalShipped = $this->getOrderTotal();
-
-            $configValue = $this->helper->getConfig($consignmentOption, 'shipment', $storeId);
-            if ( ! empty($configValue) && $configValue > 0) {
-                if ($orderTotalShipped >= $configValue) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            } else {
-                return 0;
-            }
-        } else {
-            if ($orderIsXl == '1') {
-                return 1;
-            } else {
-                return 0;
-            }
-        }
-    }
-
 
     /**
      * @return array
@@ -387,32 +356,6 @@ class DMP_PostNL_Model_Shipment extends Mage_Core_Model_Abstract
         return array(
             'option'   => $consignmentOption,
             'selected' => 0,
-        );
-    }
-
-    /**
-     * @return array
-     */
-    public function getXlOption()
-    {
-        $consignmentOption = 'is_xl';
-
-        $storeId           = $this->getOrder()->getStoreId();
-        $orderTotalShipped = $this->getOrderTotal();
-
-        $configValue = $this->helper->getConfig($consignmentOption, 'shipment', $storeId);
-        if ( ! empty($configValue) && $configValue > 0) {
-            if ($orderTotalShipped >= $configValue) {
-                return array(
-                    'option'   => $consignmentOption,
-                    'selected' => 1,
-                );
-            }
-        }
-
-        return array(
-            'option'   => $consignmentOption,
-            'selected' => null,
         );
     }
 
