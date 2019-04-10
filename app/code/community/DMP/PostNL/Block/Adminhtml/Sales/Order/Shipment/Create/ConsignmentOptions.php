@@ -240,14 +240,6 @@ class DMP_PostNL_Block_Adminhtml_Sales_Order_Shipment_Create_ConsignmentOptions 
     /**
      * @return string
      */
-    public function getIsXl()
-    {
-        return $this->getIsSelected('is_xl');
-    }
-
-    /**
-     * @return string
-     */
     public function getIsInsured()
     {
 

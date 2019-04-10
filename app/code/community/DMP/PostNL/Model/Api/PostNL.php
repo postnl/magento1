@@ -877,7 +877,6 @@ class DMP_PostNL_Model_Api_PostNL extends Varien_Object
 
         $data = array(
             'package_type'          => $packageType,
-            'large_format'          => (int)$postNLShipment->isXL(),
             'only_recipient'        => (int)$postNLShipment->isHomeAddressOnly(),
             'signature'             => (int)$postNLShipment->isSignatureOnReceipt(),
             'return'                => (int)$postNLShipment->getReturnIfNoAnswer(),
