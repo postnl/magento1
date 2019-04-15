@@ -16,7 +16,6 @@ DMP_PostNL::Default Shipment Settings,Standaard verzendinstellingen
 DMP_PostNL::Home address only,Alleen huisadres
 DMP_PostNL::Signature on receipt,Handtekening voor ontvangst
 DMP_PostNL::Return if no answer,Retour bij niet aanwezig
-DMP_PostNL::Large package,Groot pakket
 DMP_PostNL::Insured up to &euro; 50,Verzekerd tot &euro; 50
 DMP_PostNL::For NL shipping only,Alleen voor Nederlandse verzendingen
 DMP_PostNL::Insured up to &euro; 250,Verzekerd tot &euro; 250
@@ -90,9 +89,9 @@ DMP_PostNL::Pickup at PostNL location,Ophalen bij PostNL locatie
 DMP_PostNL::Pickup active,Ophalen actief
 DMP_PostNL::Pickup title,Ophalen titel
 DMP_PostNL::Pickup fee,Ophalen prijs
-DMP_PostNL::Pickup Express at PostNL location,Extra vroeg ophalen bij PostNL locatie
-DMP_PostNL::Pickup Express active,Extra vroeg ophalen actief
-DMP_PostNL::Pickup Express fee,Extra vroeg ophalen prijs
+DMP_PostNL::Early morning pick up points,Extra vroeg ophalen bij PostNL locatie
+DMP_PostNL::Early morning pick up points active,Extra vroeg ophalen actief
+DMP_PostNL::Early morning pick up points fee,Extra vroeg ophalen prijs
 DMP_PostNL::Pickup at Belgium PostNL location,Ophalen bij een Belgische PostNL locatie
 DMP_PostNL::Pickup Belgium active,Ophalen België actief
 DMP_PostNL::Pickup Belgium title,Ophalen België titel
@@ -179,7 +178,6 @@ DMP_PostNL::You can create a new transactional e-mail where the variables {{var 
 DMP_PostNL::Unable to send track and trace email for shipment #,Versturen van track & trace e-mail mislukt voor zending #
 DMP_PostNL::Track&amp;Trace e-mail is sent: %s,Track & Trace e-mail is verzonden: %s
 DMP_PostNL::Credit Consignment,Crediteer zending
-DMP_PostNL::Mail return label,Mail retourlabel
 DMP_PostNL::Retour label mailed,Retour label is gemaild naar de klant
 DMP_PostNL::This only works for Dutch addresses,Dit werkt alleen voor nederlandse adressen
 DMP_PostNL::Name client,Naam klant

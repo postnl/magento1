@@ -256,35 +256,6 @@
                 }
             });
 
-            /* Add return button */
-            var returnSubmit = document.createElement('button');
-            returnSubmit.id = 'postnl_return_open_dialog';
-            returnSubmit.type = 'button';
-            returnSubmit.name = 'postnl_return_open_dialog';
-            returnSubmit.appendChild(document.createTextNode("<?php echo $helper->__('Mail return label');?>"));
-
-            $$('td.form-buttons')[0].appendChild(returnSubmit);
-
-            $('postnl_return_open_dialog').observe('click', function () {
-                Dialog.info(null, {
-                    closable: true,
-                    resizable: false,
-                    draggable: true,
-                    className: 'magento',
-                    windowClassName: 'postnl-return-popup-window',
-                    title: '<?php echo $helper->__('Mail return label'); ?>',
-                    top: 100,
-                    width: 200,
-                    height: 290,
-                    zIndex: 5000,
-                    recenterAuto: true,
-                    hideEffect: Element.hide,
-                    showEffect: Element.show,
-                    id: 'postnl_popup_window'
-                });
-                Dialog.setInfoMessage($('postnl_return_container').innerHTML);
-            });
-
             function postNLOnMassactionComlete(response) {
                 if(useV2Endpoint) {
                     var downloadUrl = response.responseText;

@@ -16,7 +16,6 @@ DMP_PostNL::Default Shipment Settings,Default Shipment Settings
 DMP_PostNL::Home address only,Home address only
 DMP_PostNL::Signature on receipt,Signature on receipt
 DMP_PostNL::Return if no answer,Return if no answer
-DMP_PostNL::Large package,Large package
 DMP_PostNL::Insured up to &euro; 50,Insured up to &euro; 50
 DMP_PostNL::For NL shipping only,For NL shipping only
 DMP_PostNL::Insured up to &euro; 250,Insured up to &euro; 250
@@ -118,7 +117,6 @@ DMP_PostNL::You can create a new transactional e-mail where the variables {{var 
 DMP_PostNL::Unable to send track and trace email for shipment #,Unable to send track and trace email for shipment #
 DMP_PostNL::Track&amp;Trace e-mail is sent: %s,Track&amp;Trace e-mail is sent: %s
 DMP_PostNL::Credit Consignment,Credit Consignment
-DMP_PostNL::Mail return label,Mail return label
 DMP_PostNL::Retour label mailed,Retour label mailed
 "DMP_PostNL::Credit has not been created, check PostNL backend for details","Credit has not been created, check PostNL backend for details"
 DMP_PostNL::Consignment %s is credited at PostNL,Consignment %s is credited at PostNL

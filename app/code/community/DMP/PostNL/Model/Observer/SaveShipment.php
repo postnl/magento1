@@ -46,8 +46,6 @@ class DMP_PostNL_Model_Observer_SaveShipment
                 }
             }
         }
-        if(key_exists('is_xl', $selectedConsignmentOptions) && $selectedConsignmentOptions['is_xl'] == null)
-            $selectedConsignmentOptions['is_xl'] = 0;
 
         /**
          * Add the selected options to the registry.

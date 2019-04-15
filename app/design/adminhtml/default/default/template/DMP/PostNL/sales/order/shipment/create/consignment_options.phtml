@@ -26,7 +26,6 @@ $_helper                    = Mage::helper('dmp_postnl');
 $_homeSelected              = $this->getIsHomeSelected();
 $_signatureSelected         = $this->getIsSignatureOnReceipt();
 $_returnNoAnswerSelected    = $this->getIsReturnOnNoAnswer();
-$_isXlSelected              = $this->getIsXl();
 $_insured                   = $this->getIsInsured();
 $_isPakjegemak              = $this->getIsPakjeGemak();
 $_insuredSelected           = '';
@@ -96,10 +95,6 @@ if(true == $_isPakjegemak){
                     <input id="dmp_postnl_return_if_no_answer" type="checkbox" value="1" name="dmp_postnl[return_if_no_answer]" <?php echo $_returnNoAnswerSelected;?> />
                 </p>
                 <p>
-                    <label for="dmp_postnl_xl" class="normal"><?php echo $this->__('Large package');?></label>
-                    <input id="dmp_postnl_xl" type="checkbox" value="1" name="dmp_postnl[is_xl]" <?php echo $_isXlSelected;?> />
-                </p>
-                <p>
                     <label for="dmp_postnl_insured" class="normal">(<?php echo $this->__('Total order value: &euro; %s',$this->getOrderTotal());?>) <?php echo $this->__('Insured up to:');?> </label>
                     <select id="dmp_postnl_insured_amount" name="dmp_postnl[insured_amount]" >
                         <option value="100" <?php echo $_insuredUpTo == 100 ? 'selected="selected"' : '';?>>&euro; 100</option>
@@ -156,10 +151,6 @@ if(true == $_isPakjegemak){
                     <small><?php echo $this->__('Shipment insured up to &euro; %s purchase value', 200);?></small>
                 </p>
             <?php else: ?>
-                <p>
-                    <label for="dmp_postnl_xl" class="normal"><?php echo $this->__('Large package');?></label>
-                    <input id="dmp_postnl_xl" type="checkbox" value="1" name="dmp_postnl[is_xl]" <?php echo $_isXlSelected;?> />
-                </p>
                 <p>
                     <small><?php echo $this->__('Shipment insured up to &euro; %s purchase value', 500);?></small>
                 </p>

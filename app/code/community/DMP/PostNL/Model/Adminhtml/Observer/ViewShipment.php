@@ -68,20 +68,6 @@ class DMP_PostNL_Model_Adminhtml_Observer_ViewShipment extends Varien_Object
                 ));
                 // remove Send Tracking Information button
                 $block->removeButton('save');
-            } else if (in_array($postNLShipment->getShipment()->getShippingAddress()->getCountry(), $helper->getReturnCountries())) {
-                $mailRetournMailAction = $block->getUrl(self::RETOURMAIL_ROUTE, array('shipment_id' => $shipmentId,));
-                $block->addButton('postnl_mail_return_label', array(
-                    'label' => $helper->__('Mail return label'),
-                    'class' => 'go',
-                    'onclick' => "setLocation('" . $mailRetournMailAction . "')",
-                ));
-
-                $retourLinkAction = $block->getUrl(self::RETOURLINK_ROUTE, array('shipment_id' => $shipmentId,));
-                $block->addButton('postnl_create_return_url', array(
-                    'label' => $helper->__('Get retour label url'),
-                    'class' => 'go',
-                    'onclick' => "setLocation('" . $retourLinkAction . "')",
-                ));
             }
         }
     }

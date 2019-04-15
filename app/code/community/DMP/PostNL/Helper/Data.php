@@ -241,10 +241,6 @@ class DMP_PostNL_Helper_Data extends Mage_Core_Helper_Abstract
 
             if ($postNLShipment->getInsuredAmount() > 0)
                 $options[] = $this->__('Insured up to &euro;%s', $postNLShipment->getInsuredAmount());
-
-            if ($postNLShipment->getIsXL() == '1')
-                $options[] = $this->__('Large package');
-
         }
 
         $htmlOptions = $this->__('status_' . $postNLShipment->getStatus()) . ', ' . strtolower(implode(', ', $options));
