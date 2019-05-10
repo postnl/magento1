@@ -64,15 +64,18 @@ class DMP_PostNL_Block_Adminhtml_Widget_Grid_Column_Renderer_Shipment_ShippingSt
             'countryCode' => $countryCode,
             'postcode'    => $postcode,
         );
+        $html = '';
+        $barcodeCollection = explode(",", $row->getData(self::BARCODE_COLUMN));
+        foreach ($barcodeCollection as $barcode) {
 
-        $barcode = $row->getData(self::BARCODE_COLUMN);
-            if (!empty($barcode)) {
-                $barcodeUrl = Mage::helper('dmp_postnl')->getBarcodeUrl($barcode, $destinationData, false, true);
-                $barcodeHtml = "<a href='{$barcodeUrl}' target='_blank'>{$barcode}</a> - <small>" . $this->__('status_' . $value) . "</small>";
-
-            } else {
-                $barcodeHtml = "<small>" . $this->__('status_' . $value) . "</small>";
+            $barcodeUrl = Mage::helper('dmp_postnl')->getBarcodeUrl($barcode, $destinationData, false, true);
+            if ($barcode) {
+                $html .= "<a href='{$barcodeUrl}' target='_blank'>{$barcode}</a>";
             }
-        return $barcodeHtml;
+            $html .= "<small>" . $this->__('status_' . $value) . "</small><br>";
+
+        }
+
+       return $html;
     }
 }
